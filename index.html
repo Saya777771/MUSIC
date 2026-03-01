@@ -2,91 +2,54 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Private Playlist</title>
+    <title>My Playlist</title>
     <style>
-        body { 
-            background-color: #000000; 
-            margin: 0; 
-            display: flex; 
-            flex-direction: column; /* 세로 정렬 */
-            justify-content: center; 
-            align-items: center; 
-            height: 100vh; 
-            font-family: 'Pretendard', sans-serif;
-            overflow: hidden;
-            color: #fff;
-        }
-
-        /* 현재 재생 중인 곡 제목 스타일 */
-        #song-title {
-            margin-bottom: 20px;
-            font-size: 14px;
-            color: #888;
-            letter-spacing: 1px;
-        }
-
-        audio { 
-            width: 350px; 
-            height: 50px;
-            filter: invert(100%) hue-rotate(180deg) brightness(1.5);
-            outline: none;
-        }
-
-        .info {
-            position: absolute;
-            bottom: 20px;
-            color: #222;
-            font-size: 10px;
-        }
+        body { background: #000; color: #fff; display: flex; flex-direction: column; justify-content: center; align-items: center; height: 100vh; margin: 0; font-family: sans-serif; }
+        #song-title { margin-bottom: 20px; font-size: 1.2rem; color: #aaa; }
+        audio { filter: invert(1); width: 300px; }
+        .status { margin-top: 20px; font-size: 0.8rem; color: #444; }
     </style>
 </head>
 <body>
 
     <div id="song-title">준비 중...</div>
-
-    <audio id="player" controls autoplay></audio>
-
-    <div class="info">PLAYLIST MODE ACTIVE</div>
+    <audio id="player" controls></audio>
+    <div class="status">화면을 클릭하면 재생이 시작됩니다.</div>
 
     <script>
-        // 1. 노래 목록 추가 (여기에 파일명을 계속 추가하세요)
         const playlist = [
-            { title: "첫 번째 노래", src: "music1.mp3" },
-            { title: "두 번째 노래", src: "music2.mp3" },
-           
+            { title: "노래 1번", src: "music1.mp3" },
+            { title: "노래 2번", src: "music2.mp3" }
         ];
 
         let currentIndex = 0;
         const player = document.getElementById('player');
         const titleDisplay = document.getElementById('song-title');
 
-        // 노래 재생 함수
         function loadSong(index) {
             const song = playlist[index];
             player.src = song.src;
-            titleDisplay.innerText = `NOW PLAYING: ${song.title}`;
-            player.play().catch(e => console.log("클릭 후 재생 가능"));
+            titleDisplay.innerText = "재생 중: " + song.title;
+            player.play().catch(e => {
+                console.log("브라우저 차단: 클릭이 필요합니다.");
+            });
         }
 
-        // 페이지 첫 클릭 시 재생 시작
-        document.body.addEventListener('click', function() {
-            if (player.src === "") {
+        // 페이지 어디든 클릭하면 첫 곡 재생
+        window.addEventListener('click', () => {
+            if (!player.src || player.src === "") {
                 loadSong(currentIndex);
             }
         }, { once: true });
 
-        // 노래가 끝나면 다음 곡으로 자동 재생
-        player.addEventListener('ended', function() {
-            currentIndex++;
-            if (currentIndex >= playlist.length) {
-                currentIndex = 0; // 목록이 끝나면 처음으로 (반복)
-            }
+        // 곡 끝나면 다음 곡으로
+        player.onended = () => {
+            currentIndex = (currentIndex + 1) % playlist.length;
             loadSong(currentIndex);
-        });
+        };
 
-        // 초기 제목 설정
-        titleDisplay.innerText = "CLICK TO START PLAYLIST";
+        // 초기 안내
+        titleDisplay.innerText = "클릭해서 재생 시작";
     </script>
 </body>
 </html>
