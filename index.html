@@ -1,22 +1,52 @@
 <!DOCTYPE html>
-<html>
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <title>나만의 재생기</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Private Playlist</title>
     <style>
-        body { background: #f0f0f0; display: flex; flex-direction: column; justify-content: center; align-items: center; height: 100vh; margin: 0; font-family: sans-serif; }
-        h1 { color: #333; }
-        audio { margin-top: 20px; width: 300px; }
+        /* 배경을 완전 검은색으로 설정하고 중앙 정렬 */
+        body { 
+            background-color: #000000; 
+            margin: 0; 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            height: 100vh; 
+            font-family: 'Pretendard', sans-serif;
+            overflow: hidden;
+        }
+
+        /* 오디오 플레이어 스타일 조정 */
+        audio { 
+            width: 350px; 
+            height: 50px;
+            filter: invert(100%) hue-rotate(180deg) brightness(1.5); /* 오디오 바를 밝게 만들어 검은 배경에 대비시킴 */
+            outline: none;
+        }
+
+        /* 하단에 아주 작고 은은하게 표시되는 텍스트 (선택 사항) */
+        .info {
+            position: absolute;
+            bottom: 20px;
+            color: #333; /* 아주 어두운 회색으로 눈에 띄지 않게 함 */
+            font-size: 12px;
+            letter-spacing: 1px;
+        }
     </style>
 </head>
 <body>
-    <h1>노래 재생 중</h1>
-    
+
     <audio id="player" src="music.mp3" controls autoplay loop></audio>
 
+    <div class="info">NOW PLAYING</div>
+
     <script>
-        // 파일 이름을 확인하기 위한 메시지
-        console.log("재생 준비 완료");
+        // 페이지를 클릭하면 소리가 재생되도록 보조하는 코드
+        document.body.addEventListener('click', function() {
+            const player = document.getElementById('player');
+            player.play();
+        }, { once: true });
     </script>
 </body>
 </html>
