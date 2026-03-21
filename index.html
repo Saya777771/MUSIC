@@ -5,31 +5,85 @@
     <title>Neon Night Playlist</title>
     <style>
         body { 
-            background: #000; /* 완전 블랙 배경 */
-            color: #fff; 
-            display: flex; justify-content: center; align-items: center; 
-            min-height: 100vh; margin: 0; font-family: 'Courier New', sans-serif; /* 사이버펑크 느낌의 폰트 */
+            background: #000; color: #fff; 
+            display: flex; flex-direction: column; justify-content: center; align-items: center; 
+            min-height: 100vh; margin: 0; font-family: sans-serif;
         }
 
-        /* 메인 타이틀 네온 효과 */
-        h1.main-title {
-            color: #fff;
-            text-align: center;
-            font-size: 18px;
-            letter-spacing: 4px;
-            margin-bottom: 60px;
-            text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #ff00de, 0 0 70px #ff00de, 0 0 80px #ff00de, 0 0 100px #ff00de;
+        /* 메인 타이틀 */
+        .main-title {
+            font-size: 20px; letter-spacing: 5px; margin-bottom: 50px;
+            color: #fff; text-shadow: 0 0 10px #ff00de, 0 0 20px #ff00de;
         }
 
-        /* 두 공간을 감싸는 컨테이너 */
-        .wrapper { 
-            display: flex; 
-            gap: 40px; 
-            align-items: stretch; /* 높이 통일 */
-        }
+        .wrapper { display: flex; gap: 40px; align-items: stretch; }
 
-        /* 각 곡 공간 공통 스타일 (박스 자체) */
+        /* 공통 카드 스타일 */
         .playlist-card { 
-            padding: 40px; 
-            border-radius: 20px; 
-            background: rgba(0, 0, 0, 0.
+            padding: 40px; border-radius: 20px; background: #050505; 
+            width: 350px; display: flex; flex-direction: column; text-align: center;
+        }
+
+        /* SIDE A - 핑크 네온 */
+        .card-a { border: 2px solid #ff00de; box-shadow: 0 0 20px #ff00de, inset 0 0 10px #ff00de; }
+        .card-a h2 { color: #ff00de; text-shadow: 0 0 10px #ff00de; margin-bottom: 30px; }
+        .card-a .song-name { color: #ffb3f3; }
+        .card-a hr { border: 0; border-top: 1px solid #ff00de; opacity: 0.5; margin: 15px 0; }
+
+        /* SIDE B - 블루 네온 */
+        .card-b { border: 2px solid #00f6ff; box-shadow: 0 0 20px #00f6ff, inset 0 0 10px #00f6ff; }
+        .card-b h2 { color: #00f6ff; text-shadow: 0 0 10px #00f6ff; margin-bottom: 30px; }
+        .card-b .song-name { color: #b3faff; }
+        .card-b hr { border: 0; border-top: 1px solid #00f6ff; opacity: 0.5; margin: 15px 0; }
+
+        .songs-container { flex-grow: 1; display: flex; flex-direction: column; justify-content: space-around; }
+        .song-item { margin: 10px 0; }
+        
+        /* 오디오 스타일 반전 */
+        audio { filter: invert(1) hue-rotate(180deg); width: 100%; outline: none; }
+        .song-name { font-size: 12px; margin-top: 10px; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+    <h1 class="main-title">MY PRIVATE PLAYLIST</h1>
+
+    <div class="wrapper">
+        <div class="playlist-card card-a">
+            <h2>SIDE A</h2>
+            <div class="songs-container">
+                <div class="song-item">
+                    <audio src="music1.mp3" controls loop></audio>
+                    <div class="song-name">Track 01. music1.mp3</div>
+                </div>
+                <hr>
+                <div class="song-item">
+                    <audio src="music2.mp3" controls loop></audio>
+                    <div class="song-name">Track 02. music2.mp3</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="playlist-card card-b">
+            <h2>SIDE B</h2>
+            <div class="songs-container">
+                <div class="song-item">
+                    <audio src="music3.mp3" controls loop></audio>
+                    <div class="song-name">Track 03. music3.mp3</div>
+                </div>
+                <hr>
+                <div class="song-item">
+                    <audio src="music4.flac" controls loop></audio>
+                    <div class="song-name">Track 04. music4.flac</div>
+                </div>
+                <hr>
+                <div class="song-item">
+                    <audio src="music5.flac" controls loop></audio>
+                    <div class="song-name">Track 05. music5.flac</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
