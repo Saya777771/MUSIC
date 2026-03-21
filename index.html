@@ -2,25 +2,104 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <title>Neon Night - Clean Version</title>
+    <title>Neon Night Playlist - Final</title>
     <style>
-        /* [원본 네온 디자인 100% 유지] */
+        /* 기본 배경 및 폰트 세팅 */
         body { 
-            background: radial-gradient(circle at center, #100010 0%, #000 70%, #000 100%);
-            color: #fff; display: flex; flex-direction: column; justify-content: center; align-items: center; 
+            /* 중앙은 아주 어두운 보라, 바깥은 검은색으로 입체감 부여 */
+            background: radial-gradient(circle at center, #0a000a 0%, #000 100%);
+            color: #fff; 
+            display: flex; flex-direction: column; justify-content: center; align-items: center; 
             min-height: 100vh; margin: 0; font-family: 'Segoe UI', sans-serif;
-            overflow: hidden; position: relative;
         }
 
-        /* [우주 먼지 효과] */
-        #dust-container { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; pointer-events: none; }
-        .dust-particle { position: absolute; background: #fff; border-radius: 50%; opacity: 0.4; animation: dust-move linear infinite; }
-        @keyframes dust-move { to { transform: translateY(100vh); opacity: 0; } }
+        /* 메인 타이틀 네온 효과 */
+        .main-title {
+            font-size: 22px; letter-spacing: 6px; margin-bottom: 50px;
+            color: #fff; text-shadow: 0 0 10px #ff00de, 0 0 20px #ff00de, 0 0 30px #ff00de;
+        }
 
-        /* [콘텐츠 레이아웃] */
-        .main-title { font-size: 22px; letter-spacing: 6px; margin-bottom: 50px; color: #fff; text-shadow: 0 0 10px #ff00de; position: relative; z-index: 3; }
-        .wrapper { display: flex; gap: 40px; position: relative; z-index: 3; }
-        .card { padding: 40px; border-radius: 25px; background: rgba(5, 5, 5, 0.95); width: 360px; text-align: center; }
+        .wrapper { display: flex; gap: 40px; align-items: stretch; }
+
+        /* 공통 카드 스타일 */
+        .card { 
+            padding: 40px; border-radius: 25px; 
+            background: rgba(5, 5, 5, 0.9); /* 살짝 투명하게 */
+            width: 360px; display: flex; flex-direction: column; text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        /* SIDE A - 핑크 네온 디테일 */
+        .card-pink { border: 2px solid #ff00de; box-shadow: 0 0 20px #ff00de, inset 0 0 10px #ff00de; }
+        .card-pink h2 { color: #ff00de; text-shadow: 0 0 15px #ff00de; margin-bottom: 30px; font-size: 16px; letter-spacing: 4px; }
+        .card-pink .song-name { color: #ffb3f3; text-shadow: 0 0 8px rgba(255, 0, 222, 0.8); }
+        .card-pink hr { border: 0; border-top: 1px solid #ff00de; opacity: 0.3; margin: 20px 0; }
+
+        /* SIDE B - 블루 네온 디테일 */
+        .card-blue { border: 2px solid #00f6ff; box-shadow: 0 0 20px #00f6ff, inset 0 0 10px #00f6ff; }
+        .card-blue h2 { color: #00f6ff; text-shadow: 0 0 15px #00f6ff; margin-bottom: 30px; font-size: 16px; letter-spacing: 4px; }
+        .card-blue .song-name { color: #b3faff; text-shadow: 0 0 8px rgba(0, 246, 255, 0.8); }
+        .card-blue hr { border: 0; border-top: 1px solid #00f6ff; opacity: 0.3; margin: 20px 0; }
+
+        /* 곡 아이템 마우스 반응 효과 */
+        .song-item { 
+            margin: 10px 0; 
+            padding: 15px;
+            border-radius: 15px;
+            transition: all 0.3s ease;
+        }
+        .song-item:hover {
+            background: rgba(255, 255, 255, 0.05); /* 마우스 올리면 살짝 밝아짐 */
+            transform: scale(1.02); /* 살짝 커짐 */
+        }
+
+        .songs-container { flex-grow: 1; display: flex; flex-direction: column; justify-content: space-around; }
         
-        /* SIDE A - 핑크 네온 */
-        .card-pink { border:
+        /* 오디오 스타일 */
+        audio { filter: invert(1) hue-rotate(180deg) brightness(1.2); width: 100%; outline: none; border-radius: 30px; }
+        .song-name { font-size: 13px; margin-top: 15px; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+    <h1 class="main-title">MY PRIVATE PLAYLIST</h1>
+
+    <div class="wrapper">
+        <div class="card card-pink">
+            <h2>SIDE A</h2>
+            <div class="songs-container">
+                <div class="song-item">
+                    <audio src="music1.mp3" controls loop></audio>
+                    <div class="song-name">Track 01. music1.mp3</div>
+                </div>
+                <hr>
+                <div class="song-item">
+                    <audio src="music2.mp3" controls loop></audio>
+                    <div class="song-name">Track 02. music2.mp3</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card card-blue">
+            <h2>SIDE B</h2>
+            <div class="songs-container">
+                <div class="song-item">
+                    <audio src="music3.mp3" controls loop></audio>
+                    <div class="song-name">Track 03. music3.mp3</div>
+                </div>
+                <hr>
+                <div class="song-item">
+                    <audio src="music4.flac" controls loop></audio>
+                    <div class="song-name">Track 04. music4.flac</div>
+                </div>
+                <hr>
+                <div class="song-item">
+                    <audio src="music5.flac" controls loop></audio>
+                    <div class="song-name">Track 05. music5.flac</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
