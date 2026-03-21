@@ -2,91 +2,34 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <title>My Private Playlist</title>
+    <title>Neon Night Playlist</title>
     <style>
         body { 
-            background: #000; color: #fff; 
+            background: #000; /* 완전 블랙 배경 */
+            color: #fff; 
             display: flex; justify-content: center; align-items: center; 
-            min-height: 100vh; margin: 0; font-family: sans-serif; 
+            min-height: 100vh; margin: 0; font-family: 'Courier New', sans-serif; /* 사이버펑크 느낌의 폰트 */
+        }
+
+        /* 메인 타이틀 네온 효과 */
+        h1.main-title {
+            color: #fff;
+            text-align: center;
+            font-size: 18px;
+            letter-spacing: 4px;
+            margin-bottom: 60px;
+            text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #ff00de, 0 0 70px #ff00de, 0 0 80px #ff00de, 0 0 100px #ff00de;
         }
 
         /* 두 공간을 감싸는 컨테이너 */
         .wrapper { 
             display: flex; 
-            gap: 30px; 
-            align-items: stretch; /* 핵심: 자식 박스들의 높이를 똑같이 늘립니다 */
+            gap: 40px; 
+            align-items: stretch; /* 높이 통일 */
         }
 
-        /* 각 곡 공간 스타일 */
+        /* 각 곡 공간 공통 스타일 (박스 자체) */
         .playlist-card { 
-            border: 1px solid #333; 
             padding: 40px; 
             border-radius: 20px; 
-            background: #0a0a0a; 
-            text-align: center;
-            width: 350px; 
-            /* 내부 아이템 배치를 위해 추가 */
-            display: flex;
-            flex-direction: column;
-        }
-
-        h2 { color: #666; font-size: 13px; margin-bottom: 40px; letter-spacing: 2px; }
-
-        /* 곡 사이의 간격을 일정하게 만들기 위한 래퍼 */
-        .songs-container {
-            flex-grow: 1; /* 남는 공간을 차지하게 함 */
-            display: flex;
-            flex-direction: column;
-            justify-content: space-around; /* 곡들이 박스 높이에 맞춰 예쁘게 퍼짐 */
-        }
-
-        .song-item { margin: 10px 0; }
-        audio { filter: invert(1); width: 100%; outline: none; }
-        .song-name { font-size: 12px; color: #888; margin-top: 10px; font-weight: bold; }
-
-        hr { border: 0; border-top: 1px solid #222; width: 100%; margin: 10px 0; }
-    </style>
-</head>
-<body>
-
-    <div class="wrapper">
-        
-        <div class="playlist-card">
-            <h2>SIDE A</h2>
-            <div class="songs-container">
-                <div class="song-item">
-                    <audio id="audio1" src="music1.mp3" controls loop></audio>
-                    <div class="song-name">Track 01. music1.mp3</div>
-                </div>
-                <hr>
-                <div class="song-item">
-                    <audio id="audio2" src="music2.mp3" controls loop></audio>
-                    <div class="song-name">Track 02. music2.mp3</div>
-                </div>
-            </div>
-        </div>
-
-        <div class="playlist-card">
-            <h2>SIDE B</h2>
-            <div class="songs-container">
-                <div class="song-item">
-                    <audio id="audio3" src="music3.mp3" controls loop></audio>
-                    <div class="song-name">Track 03. music3.mp3</div>
-                </div>
-                <hr>
-                <div class="song-item">
-                    <audio id="audio4" src="music4.flac" controls loop></audio>
-                    <div class="song-name">Track 04. music4.flac</div>
-                </div>
-                <hr>
-                <div class="song-item">
-                    <audio id="audio5" src="music5.flac" controls loop></audio>
-                    <div class="song-name">Track 05. music5.flac</div>
-                </div>
-            </div>
-        </div>
-
-    </div>
-
-</body>
-</html>
+            background: rgba(0, 0, 0, 0.
