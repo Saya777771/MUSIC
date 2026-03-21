@@ -2,101 +2,71 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <title>Neon Cosmos Playlist - Final</title>
+    <title>Neon Cosmos Playlist - Natural Ripple</title>
     <style>
-        /* [기본 디자인 및 우주 배경 그라데이션] */
+        /* [기본 디자인] */
         body { 
-            /* 깊은 우주 느낌의 그라데이션 */
             background: radial-gradient(circle at center, #100010 0%, #000 70%, #000 100%);
             color: #fff; 
             display: flex; flex-direction: column; justify-content: center; align-items: center; 
             min-height: 100vh; margin: 0; font-family: 'Segoe UI', sans-serif;
-            overflow: hidden; /* 파동이 화면 밖으로 나가지 않게 */
+            overflow: hidden; 
             position: relative;
         }
 
-        /* [스타일 2: 움직이는 우주 먼지 CSS] */
-        #dust-container {
-            position: fixed;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            z-index: 1; /* 최하단에 배치 */
-            pointer-events: none; /* 클릭 방해 금지 */
-        }
+        /* [우주 먼지 CSS] */
+        #dust-container { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; pointer-events: none; }
+        .dust-particle { position: absolute; background: #fff; border-radius: 50%; opacity: 0.6; animation: dust-move linear infinite; }
+        @keyframes dust-move { to { transform: translateY(100vh); opacity: 0; } }
 
-        .dust-particle {
-            position: absolute;
-            background: #fff;
-            border-radius: 50%;
-            opacity: 0.6;
-            animation: dust-move linear infinite;
-        }
-
-        @keyframes dust-move {
-            to {
-                transform: translateY(100vh); /* 아래로 이동 */
-                opacity: 0; /* 사라짐 */
-            }
-        }
-
-        /* [메인 콘텐츠 레이아웃] */
-        .main-title {
-            font-size: 22px; letter-spacing: 6px; margin-bottom: 50px;
-            color: #fff; text-shadow: 0 0 10px #ff00de, 0 0 20px #ff00de, 0 0 30px #ff00de;
-            position: relative; z-index: 3;
-        }
-
+        /* [콘텐츠 레이아웃 및 디자인] */
+        .main-title { font-size: 22px; letter-spacing: 6px; margin-bottom: 50px; color: #fff; text-shadow: 0 0 10px #ff00de, 0 0 20px #ff00de; position: relative; z-index: 3; }
         .wrapper { display: flex; gap: 40px; align-items: stretch; position: relative; z-index: 3; }
-
-        /* [카드 디자인 디테일] */
-        .card { 
-            padding: 40px; border-radius: 25px; 
-            background: rgba(5, 5, 5, 0.95); /* 거의 불투명하게 */
-            width: 360px; display: flex; flex-direction: column; text-align: center;
-            transition: transform 0.3s ease;
-        }
-        .card:hover { transform: scale(1.01); } /* 살짝 커짐 */
-
+        .card { padding: 40px; border-radius: 25px; background: rgba(5, 5, 5, 0.95); width: 360px; display: flex; flex-direction: column; text-align: center; }
+        
         /* SIDE A - 핑크 네온 */
-        .card-pink { border: 2px solid #ff00de; box-shadow: 0 0 20px #ff00de, inset 0 0 10px #ff00de; }
+        .card-pink { border: 2px solid #ff00de; box-shadow: 0 0 20px #ff00de; }
         .card-pink h2 { color: #ff00de; text-shadow: 0 0 15px #ff00de; margin-bottom: 30px; font-size: 16px; letter-spacing: 4px; }
         .card-pink .song-name { color: #ffb3f3; text-shadow: 0 0 8px rgba(255, 0, 222, 0.8); }
         .card-pink hr { border: 0; border-top: 1px solid #ff00de; opacity: 0.3; margin: 20px 0; }
 
         /* SIDE B - 블루 네온 */
-        .card-blue { border: 2px solid #00f6ff; box-shadow: 0 0 20px #00f6ff, inset 0 0 10px #00f6ff; }
+        .card-blue { border: 2px solid #00f6ff; box-shadow: 0 0 20px #00f6ff; }
         .card-blue h2 { color: #00f6ff; text-shadow: 0 0 15px #00f6ff; margin-bottom: 30px; font-size: 16px; letter-spacing: 4px; }
         .card-blue .song-name { color: #b3faff; text-shadow: 0 0 8px rgba(0, 246, 255, 0.8); }
         .card-blue hr { border: 0; border-top: 1px solid #00f6ff; opacity: 0.3; margin: 20px 0; }
 
-        /* 곡 아이템 마우스 효과 */
-        .song-item { 
-            margin: 10px 0; padding: 15px; border-radius: 15px;
-            transition: all 0.3s ease;
-        }
+        /* 곡 아이템 효과 */
+        .song-item { margin: 10px 0; padding: 15px; border-radius: 15px; transition: all 0.3s ease; }
         .song-item:hover { background: rgba(255, 255, 255, 0.05); transform: translateY(-3px); }
-
         .songs-container { flex-grow: 1; display: flex; flex-direction: column; justify-content: space-around; }
-        
-        /* 오디오 스타일 */
-        audio { filter: invert(1) hue-rotate(180deg) brightness(1.2); width: 100%; outline: none; border-radius: 30px; }
+        audio { filter: invert(1) hue-rotate(180deg) brightness(1.2); width: 100%; border-radius: 30px; }
         .song-name { font-size: 13px; margin-top: 15px; font-weight: bold; }
 
-        /* [스타일 3: 클릭 파동 효과 CSS - 오로라 빛] */
+        /* [★수정됨★ 스타일 3: 자연스러운 클릭 파동 CSS] */
         .ripple {
             position: fixed;
             border-radius: 50%;
-            transform: scale(0);
-            animation: ripple-animation 0.7s linear;
-            background: radial-gradient(circle, rgba(255, 0, 222, 0.4) 0%, rgba(0, 246, 255, 0.2) 60%, rgba(255, 0, 222, 0) 100%);
+            transform: scale(0); /* 시작은 아주 작게 */
+            /* ★수정: 시작은 투명하게(opacity:0), 끝으로 갈수록 부드럽게(ease-out)★ */
+            animation: ripple-animation 0.8s ease-out; 
+            background: radial-gradient(circle, rgba(255, 0, 222, 0.5) 0%, rgba(0, 246, 255, 0.3) 50%, rgba(255, 0, 222, 0) 100%);
             pointer-events: none;
-            z-index: 2; /* 카드 뒤, 우주 먼지 위에 배치 */
+            z-index: 2; 
         }
 
+        /* ★수정: 애니메이션 디테일 조정★ */
         @keyframes ripple-animation {
-            to {
-                transform: scale(5); /* 더 크게 퍼짐 */
-                opacity: 0;
+            0% {
+                transform: scale(0);
+                opacity: 0; /* 시작은 안 보임 */
+            }
+            10% {
+                opacity: 0.8; /* 아주 빠르게 밝아짐 (Fade In) */
+            }
+            100% {
+                transform: scale(6); /* 더 넓게 퍼짐 */
+                opacity: 0; /* 부드럽게 사라짐 (Fade Out) */
             }
         }
     </style>
@@ -104,7 +74,6 @@
 <body>
 
     <div id="dust-container"></div>
-
     <h1 class="main-title">MY PRIVATE PLAYLIST</h1>
 
     <div class="wrapper">
@@ -145,49 +114,33 @@
     </div>
 
     <script>
-        /* 1. 우주 먼지 생성 기능 */
+        /* 1. 우주 먼지 생성 */
         const dustContainer = document.getElementById('dust-container');
-        const particleCount = 100; // 먼지 개수
-
+        const particleCount = 100;
         for (let i = 0; i < particleCount; i++) {
             const dust = document.createElement('div');
             dust.classList.add('dust-particle');
             dustContainer.appendChild(dust);
-
-            // 랜덤 크기
-            const size = Math.random() * 3 + 1; // 1~4px
+            const size = Math.random() * 3 + 1;
             dust.style.width = dust.style.height = size + 'px';
-
-            // 랜덤 시작 위치 (가로)
             dust.style.left = Math.random() * 100 + 'vw';
-            
-            // 랜덤 시작 위치 (세로, 화면 전체에 고루 분포)
             dust.style.top = Math.random() * 100 + 'vh';
-
-            // 랜덤 이동 속도
-            const duration = Math.random() * 10 + 5; // 5~15초
+            const duration = Math.random() * 10 + 5;
             dust.style.animationDuration = duration + 's';
-
-            // 랜덤 시작 시간 (지연 효과)
-            dust.style.animationDelay = Math.random() * -15 + 's'; // 이미 이동 중인 느낌
+            dust.style.animationDelay = Math.random() * -15 + 's';
         }
 
-        /* 2. 클릭 파동 기능 */
+        /* 2. 클릭 파동 */
         document.addEventListener('click', function(e) {
             const ripple = document.createElement('div');
             ripple.classList.add('ripple');
             document.body.appendChild(ripple);
-
-            // 클릭한 위치에 동그라미 배치
-            const size = 120; // 파동 크기 증가
+            const size = 120; // 시작 크기는 적당히
             ripple.style.width = ripple.style.height = size + 'px';
             ripple.style.left = e.clientX - size/2 + 'px';
             ripple.style.top = e.clientY - size/2 + 'px';
-
-            // 0.7초 뒤에 파동 제거
-            setTimeout(() => {
-                ripple.remove();
-            }, 700);
+            // 애니메이션 시간과 맞춰서 제거 (0.8초)
+            setTimeout(() => { ripple.remove(); }, 800);
         });
     </script>
 
