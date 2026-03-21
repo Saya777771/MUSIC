@@ -2,16 +2,30 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <title>My Playlist</title>
+    <title>My Private Playlist</title>
     <style>
-        body { background: #000; color: #fff; display: flex; flex-direction: column; justify-content: center; align-items: center; min-height: 100vh; margin: 0; font-family: sans-serif; }
-        .container { text-align: center; border: 1px solid #333; padding: 40px; border-radius: 20px; background: #0a0a0a; width: 400px; margin: 20px; }
-        h2 { color: #666; font-size: 14px; margin-bottom: 30px; letter-spacing: 2px; }
+        body { 
+            background: #000; color: #fff; 
+            display: flex; justify-content: center; align-items: center; 
+            min-height: 100vh; margin: 0; font-family: sans-serif; 
+        }
+        .container { 
+            border: 1px solid #333; padding: 40px; border-radius: 20px; 
+            background: #0a0a0a; width: fit-content; text-align: center;
+        }
+        h2 { color: #666; font-size: 14px; margin-bottom: 40px; letter-spacing: 2px; }
+
+        /* 좌우 레이아웃 설정 */
+        .playlist-wrapper { display: flex; gap: 60px; align-items: flex-start; }
+        .column { display: flex; flex-direction: column; gap: 30px; }
         
-        .song-item { margin-bottom: 30px; }
-        audio { filter: invert(1); width: 320px; outline: none; }
-        .song-name { font-size: 13px; color: #888; margin-top: 10px; font-weight: bold; }
-        hr { border: 0; border-top: 1px solid #222; margin: 30px 0; }
+        /* 개별 곡 스타일 */
+        .song-item { margin-bottom: 10px; }
+        audio { filter: invert(1); width: 300px; outline: none; }
+        .song-name { font-size: 12px; color: #888; margin-top: 10px; font-weight: bold; }
+
+        /* 구분선 스타일 */
+        hr { border: 0; border-top: 1px solid #222; width: 100%; margin: 15px 0; }
     </style>
 </head>
 <body>
@@ -19,33 +33,27 @@
     <div class="container">
         <h2>MY PRIVATE PLAYLIST</h2>
         
-        <div class="song-item">
-            <audio id="audio1" src="music1.mp3" controls loop></audio>
-            <div class="song-name">Track 01. music1.mp3 (Loop ON)</div>
-        </div>
+        <div class="playlist-wrapper">
+            <div class="column">
+                <div class="song-item">
+                    <audio id="audio1" src="music1.mp3" controls loop></audio>
+                    <div class="song-name">Track 01. music1.mp3 (Loop ON)</div>
+                </div>
+                <hr>
+                <div class="song-item">
+                    <audio id="audio2" src="music2.mp3" controls loop></audio>
+                    <div class="song-name">Track 02. music2.mp3 (Loop ON)</div>
+                </div>
+            </div>
 
-        <hr>
-
-        <div class="song-item">
-            <audio id="audio2" src="music2.mp3" controls loop></audio>
-            <div class="song-name">Track 02. music2.mp3 (Loop ON)</div>
-        </div>
-
-        <hr>
-
-        <div class="song-item">
-            <audio id="audio3" src="music3.mp3" controls loop></audio>
-            <div class="song-name">Track 03. music3.mp3 (Loop ON)</div>
-        </div>
-
-        <hr>
-
-     <div class="song-item">
-    <audio id="audio4" src="music4.flac" controls loop></audio>
-    <div class="song-name">Track 04. music4.flac (High Fidelity)</div>
-</div>
-        </div>
-    </div>
-
-</body>
-</html>
+            <div class="column">
+                <div class="song-item">
+                    <audio id="audio3" src="music3.mp3" controls loop></audio>
+                    <div class="song-name">Track 03. music3.mp3 (Loop ON)</div>
+                </div>
+                <hr>
+                <div class="song-item">
+                    <audio id="audio4" src="music4.flac" controls loop></audio>
+                    <div class="song-name">Track 04. music4.flac (High Fidelity)</div>
+                </div>
+                <hr>
