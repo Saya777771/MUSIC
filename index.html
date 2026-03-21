@@ -11,21 +11,31 @@
         }
         .container { 
             border: 1px solid #333; padding: 40px; border-radius: 20px; 
-            background: #0a0a0a; width: fit-content; text-align: center;
+            background: #0a0a0a; 
+            /* width를 빼고 내용물에 맞게 늘어나게 설정 */
+            display: inline-block; 
+            text-align: center;
         }
-        h2 { color: #666; font-size: 14px; margin-bottom: 40px; letter-spacing: 2px; }
+        h2 { color: #666; font-size: 14px; margin-bottom: 50px; letter-spacing: 2px; }
 
-        /* 좌우 레이아웃 설정 */
-        .playlist-wrapper { display: flex; gap: 60px; align-items: flex-start; }
-        .column { display: flex; flex-direction: column; gap: 30px; }
+        /* 좌우 기둥 사이의 간격 설정 */
+        .playlist-wrapper { 
+            display: flex; 
+            justify-content: center; 
+            gap: 80px; /* 이 숫자를 키우면 더 멀어지고, 줄이면 더 붙습니다 */
+            align-items: flex-start; 
+        }
+
+        .column { 
+            display: flex; flex-direction: column; gap: 30px; 
+            width: 320px; 
+        }
         
-        /* 개별 곡 스타일 */
-        .song-item { margin-bottom: 10px; }
-        audio { filter: invert(1); width: 300px; outline: none; }
+        .song-item { margin-bottom: 5px; }
+        audio { filter: invert(1); width: 100%; outline: none; }
         .song-name { font-size: 12px; color: #888; margin-top: 10px; font-weight: bold; }
 
-        /* 구분선 스타일 */
-        hr { border: 0; border-top: 1px solid #222; width: 100%; margin: 15px 0; }
+        hr { border: 0; border-top: 1px solid #222; width: 100%; margin: 10px 0; }
     </style>
 </head>
 <body>
@@ -57,3 +67,13 @@
                     <div class="song-name">Track 04. music4.flac (High Fidelity)</div>
                 </div>
                 <hr>
+                <div class="song-item">
+                    <audio id="audio5" src="music5.flac" controls loop></audio>
+                    <div class="song-name">Track 05. music5.flac (High Fidelity)</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
