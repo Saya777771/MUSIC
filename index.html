@@ -2,48 +2,49 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <title>Neon Night Playlist</title>
+    <title>Neon Night Playlist - 3 Columns</title>
     <style>
-        /* 배경 및 폰트 설정 */
         body { 
             background: #000; color: #fff; 
             display: flex; flex-direction: column; justify-content: center; align-items: center; 
             min-height: 100vh; margin: 0; font-family: 'Segoe UI', sans-serif;
         }
 
-        /* 메인 타이틀 네온 효과 */
         .main-title {
             font-size: 20px; letter-spacing: 5px; margin-bottom: 50px;
             color: #fff; text-shadow: 0 0 10px #ff00de, 0 0 20px #ff00de;
         }
 
-        .wrapper { display: flex; gap: 40px; align-items: stretch; }
+        /* 카드가 3개가 되므로 전체 너비 조절 */
+        .wrapper { display: flex; gap: 30px; align-items: stretch; max-width: 1200px; }
 
-        /* 공통 카드 스타일 */
         .card { 
-            padding: 40px; border-radius: 20px; background: #050505; 
-            width: 350px; display: flex; flex-direction: column; text-align: center;
+            padding: 30px; border-radius: 20px; background: #050505; 
+            width: 320px; display: flex; flex-direction: column; text-align: center;
         }
 
-        /* SIDE A - 핑크 네온 */
+        /* SIDE A - 핑크 */
         .card-pink { border: 2px solid #ff00de; box-shadow: 0 0 20px #ff00de, inset 0 0 10px #ff00de; }
         .card-pink h2 { color: #ff00de; text-shadow: 0 0 10px #ff00de; margin-bottom: 30px; }
         .card-pink .song-name { color: #ffb3f3; text-shadow: 0 0 5px #ff00de; }
         .card-pink hr { border: 0; border-top: 1px solid #ff00de; opacity: 0.4; margin: 15px 0; }
 
-        /* SIDE B - 블루 네온 */
+        /* SIDE B - 블루 */
         .card-blue { border: 2px solid #00f6ff; box-shadow: 0 0 20px #00f6ff, inset 0 0 10px #00f6ff; }
         .card-blue h2 { color: #00f6ff; text-shadow: 0 0 10px #00f6ff; margin-bottom: 30px; }
         .card-blue .song-name { color: #b3faff; text-shadow: 0 0 5px #00f6ff; }
         .card-blue hr { border: 0; border-top: 1px solid #00f6ff; opacity: 0.4; margin: 15px 0; }
 
-        /* 플레이어 배치 밸런스 */
+        /* [NEW] SIDE C - 보라색 네온 */
+        .card-purple { border: 2px solid #bc13fe; box-shadow: 0 0 20px #bc13fe, inset 0 0 10px #bc13fe; }
+        .card-purple h2 { color: #bc13fe; text-shadow: 0 0 10px #bc13fe; margin-bottom: 30px; }
+        .card-purple .song-name { color: #eabfff; text-shadow: 0 0 5px #bc13fe; }
+        .card-purple hr { border: 0; border-top: 1px solid #bc13fe; opacity: 0.4; margin: 15px 0; }
+
         .songs-container { flex-grow: 1; display: flex; flex-direction: column; justify-content: space-around; }
-        .song-item { margin: 15px 0; }
-        
-        /* 오디오 스타일 (다크 테마 최적화) */
+        .song-item { margin: 10px 0; }
         audio { filter: invert(1) hue-rotate(180deg); width: 100%; outline: none; border-radius: 30px; }
-        .song-name { font-size: 12px; margin-top: 12px; font-weight: bold; }
+        .song-name { font-size: 11px; margin-top: 10px; font-weight: bold; }
     </style>
 </head>
 <body>
@@ -78,10 +79,20 @@
                     <audio src="music4.mp3" controls loop></audio>
                     <div class="song-name">Track 04. music4.mp3</div>
                 </div>
-                <hr>
+            </div>
+        </div>
+
+        <div class="card card-purple">
+            <h2>SIDE C</h2>
+            <div class="songs-container">
                 <div class="song-item">
                     <audio src="music5.flac" controls loop></audio>
                     <div class="song-name">Track 05. music5.flac</div>
+                </div>
+                <hr>
+                <div class="song-item">
+                    <audio src="music6.mp3" controls loop></audio>
+                    <div class="song-name">Track 06. music6.mp3</div>
                 </div>
             </div>
         </div>
