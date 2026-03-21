@@ -2,16 +2,15 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <title>Neon Night Playlist</title>
+    <title>Neon Night - Breathing Effect</title>
     <style>
-        /* 배경 및 폰트 설정 */
+        /* [기본 설정] */
         body { 
             background: #000; color: #fff; 
             display: flex; flex-direction: column; justify-content: center; align-items: center; 
             min-height: 100vh; margin: 0; font-family: 'Segoe UI', sans-serif;
         }
 
-        /* 메인 타이틀 네온 효과 */
         .main-title {
             font-size: 20px; letter-spacing: 5px; margin-bottom: 50px;
             color: #fff; text-shadow: 0 0 10px #ff00de, 0 0 20px #ff00de;
@@ -19,73 +18,21 @@
 
         .wrapper { display: flex; gap: 40px; align-items: stretch; }
 
-        /* 공통 카드 스타일 */
+        /* [카드 기본 스타일] */
         .card { 
             padding: 40px; border-radius: 20px; background: #050505; 
             width: 350px; display: flex; flex-direction: column; text-align: center;
+            transition: all 0.5s ease; /* 부드러운 상태 변화 */
         }
 
-        /* SIDE A - 핑크 네온 */
-        .card-pink { border: 2px solid #ff00de; box-shadow: 0 0 20px #ff00de, inset 0 0 10px #ff00de; }
-        .card-pink h2 { color: #ff00de; text-shadow: 0 0 10px #ff00de; margin-bottom: 30px; }
-        .card-pink .song-name { color: #ffb3f3; text-shadow: 0 0 5px #ff00de; }
-        .card-pink hr { border: 0; border-top: 1px solid #ff00de; opacity: 0.4; margin: 15px 0; }
+        /* [★3번 효과: 네온 호흡(Breathing) 애니메이션] */
+        @keyframes breathe-pink {
+            0% { box-shadow: 0 0 10px #ff00de; border-color: rgba(255, 0, 222, 0.5); }
+            50% { box-shadow: 0 0 30px #ff00de, inset 0 0 15px #ff00de; border-color: rgba(255, 0, 222, 1); }
+            100% { box-shadow: 0 0 10px #ff00de; border-color: rgba(255, 0, 222, 0.5); }
+        }
 
-        /* SIDE B - 블루 네온 */
-        .card-blue { border: 2px solid #00f6ff; box-shadow: 0 0 20px #00f6ff, inset 0 0 10px #00f6ff; }
-        .card-blue h2 { color: #00f6ff; text-shadow: 0 0 10px #00f6ff; margin-bottom: 30px; }
-        .card-blue .song-name { color: #b3faff; text-shadow: 0 0 5px #00f6ff; }
-        .card-blue hr { border: 0; border-top: 1px solid #00f6ff; opacity: 0.4; margin: 15px 0; }
-
-        /* 플레이어 배치 밸런스 */
-        .songs-container { flex-grow: 1; display: flex; flex-direction: column; justify-content: space-around; }
-        .song-item { margin: 15px 0; }
-        
-        /* 오디오 스타일 (다크 테마 최적화) */
-        audio { filter: invert(1) hue-rotate(180deg); width: 100%; outline: none; border-radius: 30px; }
-        .song-name { font-size: 12px; margin-top: 12px; font-weight: bold; }
-    </style>
-</head>
-<body>
-
-    <h1 class="main-title">MY PRIVATE PLAYLIST</h1>
-
-    <div class="wrapper">
-        <div class="card card-pink">
-            <h2>SIDE A</h2>
-            <div class="songs-container">
-                <div class="song-item">
-                    <audio src="music1.mp3" controls loop></audio>
-                    <div class="song-name">Track 01. music1.mp3</div>
-                </div>
-                <hr>
-                <div class="song-item">
-                    <audio src="music2.mp3" controls loop></audio>
-                    <div class="song-name">Track 02. music2.mp3</div>
-                </div>
-            </div>
-        </div>
-
-        <div class="card card-blue">
-            <h2>SIDE B</h2>
-            <div class="songs-container">
-                <div class="song-item">
-                    <audio src="music3.mp3" controls loop></audio>
-                    <div class="song-name">Track 03. music3.mp3</div>
-                </div>
-                <hr>
-                <div class="song-item">
-                    <audio src="music4.flac" controls loop></audio>
-                    <div class="song-name">Track 04. music4.flac</div>
-                </div>
-                <hr>
-                <div class="song-item">
-                    <audio src="music5.flac" controls loop></audio>
-                    <div class="song-name">Track 05. music5.flac</div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-</body>
-</html>
+        @keyframes breathe-blue {
+            0% { box-shadow: 0 0 10px #00f6ff; border-color: rgba(0, 246, 255, 0.5); }
+            50% { box-shadow: 0 0 30px #00f6ff, inset 0 0 15px #00f6ff; border-color: rgba(0, 246, 255, 1); }
+            100% { box-shadow: 0 0
