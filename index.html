@@ -10,32 +10,41 @@
             min-height: 100vh; margin: 0; font-family: sans-serif; 
         }
 
-        /* 두 개의 공간(카드)을 감싸는 전체 레이아웃 */
+        /* 두 공간을 감싸는 컨테이너 */
         .wrapper { 
             display: flex; 
-            gap: 30px; /* 두 공간 사이의 '살짝의 거리'를 조절합니다 */
-            align-items: flex-start;
+            gap: 30px; 
+            align-items: stretch; /* 핵심: 자식 박스들의 높이를 똑같이 늘립니다 */
         }
 
-        /* 각 곡들이 담기는 개별 공간 스타일 */
+        /* 각 곡 공간 스타일 */
         .playlist-card { 
             border: 1px solid #333; 
             padding: 40px; 
             border-radius: 20px; 
             background: #0a0a0a; 
             text-align: center;
-            width: 350px; /* 각 공간의 너비 */
+            width: 350px; 
+            /* 내부 아이템 배치를 위해 추가 */
+            display: flex;
+            flex-direction: column;
         }
 
         h2 { color: #666; font-size: 13px; margin-bottom: 40px; letter-spacing: 2px; }
 
-        /* 곡 아이템 스타일 */
-        .song-item { margin-bottom: 10px; }
+        /* 곡 사이의 간격을 일정하게 만들기 위한 래퍼 */
+        .songs-container {
+            flex-grow: 1; /* 남는 공간을 차지하게 함 */
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around; /* 곡들이 박스 높이에 맞춰 예쁘게 퍼짐 */
+        }
+
+        .song-item { margin: 10px 0; }
         audio { filter: invert(1); width: 100%; outline: none; }
         .song-name { font-size: 12px; color: #888; margin-top: 10px; font-weight: bold; }
 
-        /* 구분선 */
-        hr { border: 0; border-top: 1px solid #222; width: 100%; margin: 15px 0; }
+        hr { border: 0; border-top: 1px solid #222; width: 100%; margin: 10px 0; }
     </style>
 </head>
 <body>
@@ -44,32 +53,36 @@
         
         <div class="playlist-card">
             <h2>SIDE A</h2>
-            <div class="song-item">
-                <audio id="audio1" src="music1.mp3" controls loop></audio>
-                <div class="song-name">Track 01. music1.mp3</div>
-            </div>
-            <hr>
-            <div class="song-item">
-                <audio id="audio2" src="music2.mp3" controls loop></audio>
-                <div class="song-name">Track 02. music2.mp3</div>
+            <div class="songs-container">
+                <div class="song-item">
+                    <audio id="audio1" src="music1.mp3" controls loop></audio>
+                    <div class="song-name">Track 01. music1.mp3</div>
+                </div>
+                <hr>
+                <div class="song-item">
+                    <audio id="audio2" src="music2.mp3" controls loop></audio>
+                    <div class="song-name">Track 02. music2.mp3</div>
+                </div>
             </div>
         </div>
 
         <div class="playlist-card">
             <h2>SIDE B</h2>
-            <div class="song-item">
-                <audio id="audio3" src="music3.mp3" controls loop></audio>
-                <div class="song-name">Track 03. music3.mp3</div>
-            </div>
-            <hr>
-            <div class="song-item">
-                <audio id="audio4" src="music4.flac" controls loop></audio>
-                <div class="song-name">Track 04. music4.flac</div>
-            </div>
-            <hr>
-            <div class="song-item">
-                <audio id="audio5" src="music5.flac" controls loop></audio>
-                <div class="song-name">Track 05. music5.flac</div>
+            <div class="songs-container">
+                <div class="song-item">
+                    <audio id="audio3" src="music3.mp3" controls loop></audio>
+                    <div class="song-name">Track 03. music3.mp3</div>
+                </div>
+                <hr>
+                <div class="song-item">
+                    <audio id="audio4" src="music4.flac" controls loop></audio>
+                    <div class="song-name">Track 04. music4.flac</div>
+                </div>
+                <hr>
+                <div class="song-item">
+                    <audio id="audio5" src="music5.flac" controls loop></audio>
+                    <div class="song-name">Track 05. music5.flac</div>
+                </div>
             </div>
         </div>
 
