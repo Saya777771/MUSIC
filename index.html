@@ -2,48 +2,62 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <title>Neon Night Playlist</title>
+    <title>Neon Night Playlist - Final</title>
     <style>
-        /* 배경 및 폰트 설정 */
+        /* 기본 배경 및 폰트 세팅 */
         body { 
-            background: #000; color: #fff; 
+            /* 중앙은 아주 어두운 보라, 바깥은 검은색으로 입체감 부여 */
+            background: radial-gradient(circle at center, #0a000a 0%, #000 100%);
+            color: #fff; 
             display: flex; flex-direction: column; justify-content: center; align-items: center; 
             min-height: 100vh; margin: 0; font-family: 'Segoe UI', sans-serif;
         }
 
         /* 메인 타이틀 네온 효과 */
         .main-title {
-            font-size: 20px; letter-spacing: 5px; margin-bottom: 50px;
-            color: #fff; text-shadow: 0 0 10px #ff00de, 0 0 20px #ff00de;
+            font-size: 22px; letter-spacing: 6px; margin-bottom: 50px;
+            color: #fff; text-shadow: 0 0 10px #ff00de, 0 0 20px #ff00de, 0 0 30px #ff00de;
         }
 
         .wrapper { display: flex; gap: 40px; align-items: stretch; }
 
         /* 공통 카드 스타일 */
         .card { 
-            padding: 40px; border-radius: 20px; background: #050505; 
-            width: 350px; display: flex; flex-direction: column; text-align: center;
+            padding: 40px; border-radius: 25px; 
+            background: rgba(5, 5, 5, 0.9); /* 살짝 투명하게 */
+            width: 360px; display: flex; flex-direction: column; text-align: center;
+            transition: transform 0.3s ease;
         }
 
-        /* SIDE A - 핑크 네온 */
+        /* SIDE A - 핑크 네온 디테일 */
         .card-pink { border: 2px solid #ff00de; box-shadow: 0 0 20px #ff00de, inset 0 0 10px #ff00de; }
-        .card-pink h2 { color: #ff00de; text-shadow: 0 0 10px #ff00de; margin-bottom: 30px; }
-        .card-pink .song-name { color: #ffb3f3; text-shadow: 0 0 5px #ff00de; }
-        .card-pink hr { border: 0; border-top: 1px solid #ff00de; opacity: 0.4; margin: 15px 0; }
+        .card-pink h2 { color: #ff00de; text-shadow: 0 0 15px #ff00de; margin-bottom: 30px; font-size: 16px; letter-spacing: 4px; }
+        .card-pink .song-name { color: #ffb3f3; text-shadow: 0 0 8px rgba(255, 0, 222, 0.8); }
+        .card-pink hr { border: 0; border-top: 1px solid #ff00de; opacity: 0.3; margin: 20px 0; }
 
-        /* SIDE B - 블루 네온 */
+        /* SIDE B - 블루 네온 디테일 */
         .card-blue { border: 2px solid #00f6ff; box-shadow: 0 0 20px #00f6ff, inset 0 0 10px #00f6ff; }
-        .card-blue h2 { color: #00f6ff; text-shadow: 0 0 10px #00f6ff; margin-bottom: 30px; }
-        .card-blue .song-name { color: #b3faff; text-shadow: 0 0 5px #00f6ff; }
-        .card-blue hr { border: 0; border-top: 1px solid #00f6ff; opacity: 0.4; margin: 15px 0; }
+        .card-blue h2 { color: #00f6ff; text-shadow: 0 0 15px #00f6ff; margin-bottom: 30px; font-size: 16px; letter-spacing: 4px; }
+        .card-blue .song-name { color: #b3faff; text-shadow: 0 0 8px rgba(0, 246, 255, 0.8); }
+        .card-blue hr { border: 0; border-top: 1px solid #00f6ff; opacity: 0.3; margin: 20px 0; }
 
-        /* 플레이어 배치 밸런스 */
+        /* 곡 아이템 마우스 반응 효과 */
+        .song-item { 
+            margin: 10px 0; 
+            padding: 15px;
+            border-radius: 15px;
+            transition: all 0.3s ease;
+        }
+        .song-item:hover {
+            background: rgba(255, 255, 255, 0.05); /* 마우스 올리면 살짝 밝아짐 */
+            transform: scale(1.02); /* 살짝 커짐 */
+        }
+
         .songs-container { flex-grow: 1; display: flex; flex-direction: column; justify-content: space-around; }
-        .song-item { margin: 15px 0; }
         
-        /* 오디오 스타일 (다크 테마 최적화) */
-        audio { filter: invert(1) hue-rotate(180deg); width: 100%; outline: none; border-radius: 30px; }
-        .song-name { font-size: 12px; margin-top: 12px; font-weight: bold; }
+        /* 오디오 스타일 */
+        audio { filter: invert(1) hue-rotate(180deg) brightness(1.2); width: 100%; outline: none; border-radius: 30px; }
+        .song-name { font-size: 13px; margin-top: 15px; font-weight: bold; }
     </style>
 </head>
 <body>
