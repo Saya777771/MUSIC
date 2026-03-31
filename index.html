@@ -111,4 +111,44 @@
             <div class="songs-container">
                 <div class="song-item">
                     <div class="song-name">Track 05. music5.flac</div>
-                    <audio src="music5.flac" controls
+                    <audio src="music5.flac" controls loop></audio>
+                </div>
+                <hr>
+                <div class="song-item">
+                    <div class="song-name">Track 06. music6.flac</div>
+                    <audio src="music6.flac" controls loop></audio>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 자바스크립트로 랜덤한 별 생성
+        const container = document.getElementById('star-container');
+        const starCount = 50; // 별의 개수
+
+        for (let i = 0; i < starCount; i++) {
+            const star = document.createElement('div');
+            star.className = 'star';
+            
+            // 랜덤 속성 부여
+            const size = Math.random() * 3 + 1 + 'px';
+            const left = Math.random() * 100 + 'vw';
+            const duration = Math.random() * 5 + 5 + 's';
+            const delay = Math.random() * 5 + 's';
+            
+            // 색상 랜덤 (흰색, 핑크, 블루, 퍼플)
+            const colors = ['#ffffff', '#ff375f', '#0a84ff', '#bf5af2'];
+            star.style.background = colors[Math.floor(Math.random() * colors.length)];
+            
+            star.style.width = size;
+            star.style.height = size;
+            star.style.left = left;
+            star.style.animationDuration = duration;
+            star.style.animationDelay = delay;
+            
+            container.appendChild(star);
+        }
+    </script>
+</body>
+</html>
