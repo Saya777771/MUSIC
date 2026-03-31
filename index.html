@@ -2,41 +2,20 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <title>Real Starry White Playlist</title>
+    <title>Minimalist Playlist - Pure White</title>
     <style>
         body { 
             background: #f8f9fa; color: #333; 
             display: flex; flex-direction: column; justify-content: center; align-items: center; 
             min-height: 100vh; margin: 0; font-family: 'Apple SD Gothic Neo', sans-serif;
-            overflow: hidden;
-            position: relative;
-        }
-
-        /* ✨ 진짜 별 모양 스타일 */
-        .star {
-            position: absolute;
-            color: #ffcc00; /* 이쁜 노란색 */
-            /* 배경색 대신 글자색을 노란색으로 설정 */
-            animation: fall linear infinite;
-            pointer-events: none;
-            /* 동그라미 대신 그림자 발광 효과 */
-            text-shadow: 0 0 5px rgba(255, 204, 0, 0.5);
-            font-weight: bold;
-        }
-
-        @keyframes fall {
-            from { transform: translateY(-10vh) rotate(0deg); }
-            /* 떨어지면서 살짝 회전해서 더 이쁨 */
-            to { transform: translateY(110vh) rotate(360deg); }
         }
 
         .main-title {
             font-size: 18px; letter-spacing: 3px; margin-bottom: 40px;
             color: #222; font-weight: 300;
-            z-index: 10;
         }
 
-        .wrapper { display: flex; gap: 20px; align-items: stretch; max-width: 1200px; z-index: 10; }
+        .wrapper { display: flex; gap: 20px; align-items: stretch; max-width: 1200px; }
 
         .card { 
             padding: 25px; border-radius: 15px; background: #fff; 
@@ -60,6 +39,7 @@
             opacity: 0.8;
         }
         
+        /* 마우스 올리면 포인트 컬러 활성화 */
         .card-pink audio:hover { filter: sepia(100%) saturate(300%) hue-rotate(300deg); opacity: 1; }
         .card-blue audio:hover { filter: sepia(100%) saturate(300%) hue-rotate(180deg); opacity: 1; }
         .card-purple audio:hover { filter: sepia(100%) saturate(300%) hue-rotate(240deg); opacity: 1; }
@@ -75,8 +55,6 @@
     </style>
 </head>
 <body>
-
-    <div id="star-container"></div>
 
     <h1 class="main-title">MY PRIVATE PLAYLIST</h1>
 
@@ -127,30 +105,5 @@
         </div>
     </div>
 
-    <script>
-        const container = document.getElementById('star-container');
-        const starCount = 50; 
-
-        for (let i = 0; i < starCount; i++) {
-            const star = document.createElement('div');
-            star.className = 'star';
-            
-            // 💡 중요: 동그라미 대신 진짜 별 모양 문자(★) 삽입
-            star.innerHTML = '★';
-            
-            // 랜덤 크기 및 위치 (글자 크기로 조절)
-            const size = Math.random() * 10 + 10 + 'px'; // 폰트 크기
-            const left = Math.random() * 100 + 'vw';
-            const duration = Math.random() * 5 + 5 + 's';
-            const delay = Math.random() * 7 + 's';
-            
-            star.style.fontSize = size;
-            star.style.left = left;
-            star.style.animationDuration = duration;
-            star.style.animationDelay = delay;
-            
-            container.appendChild(star);
-        }
-    </script>
 </body>
 </html>
