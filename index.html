@@ -2,24 +2,25 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <title>Starry Night Playlist</title>
+    <title>White & Golden Star Playlist</title>
     <style>
         body { 
-            /* 눈이 편안한 밤하늘 배경 */
-            background: #0f1218; color: #e0e0e0; 
+            /* 깨끗한 올 화이트 배경 */
+            background: #ffffff; color: #333; 
             display: flex; flex-direction: column; justify-content: center; align-items: center; 
             min-height: 100vh; margin: 0; font-family: 'Apple SD Gothic Neo', sans-serif;
             overflow: hidden; /* 별이 화면 밖으로 나가는 것 방지 */
             position: relative;
         }
 
-        /* ✨ 별 애니메이션 스타일 */
+        /* ✨ 노란 별 애니메이션 스타일 */
         .star {
             position: absolute;
-            background: #fff;
+            background: #ffcc00; /* 따뜻한 노란색 별 */
             border-radius: 50%;
-            opacity: 0.5;
+            opacity: 0.6;
             animation: fall linear infinite;
+            box-shadow: 0 0 5px rgba(255, 204, 0, 0.4); /* 살짝 빛나는 효과 */
         }
 
         @keyframes fall {
@@ -28,127 +29,26 @@
         }
 
         .main-title {
-            font-size: 16px; letter-spacing: 5px; margin-bottom: 40px;
-            color: #aaa; font-weight: 300; z-index: 10;
+            font-size: 18px; letter-spacing: 3px; margin-bottom: 40px;
+            color: #222; font-weight: 300; z-index: 10;
         }
 
         .wrapper { display: flex; gap: 20px; align-items: stretch; max-width: 1200px; z-index: 10; }
 
         .card { 
-            padding: 25px; border-radius: 18px; background: rgba(25, 28, 35, 0.9); 
+            padding: 25px; border-radius: 15px; 
+            background: rgba(255, 255, 255, 0.9); /* 카드는 살짝 투명해서 별이 비침 */
             width: 300px; display: flex; flex-direction: column; text-align: left;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.5);
-            border: 1px solid #2a2e37;
-            backdrop-filter: blur(5px); /* 카드 뒤로 별이 살짝 흐리게 보임 */
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+            border: 1px solid #eee;
+            backdrop-filter: blur(3px); /* 카드 뒤로 별이 살짝 흐리게 보임 */
         }
 
-        h2 { font-size: 13px; letter-spacing: 1.5px; margin-bottom: 25px; font-weight: 600; }
+        h2 { font-size: 14px; letter-spacing: 1px; margin-bottom: 20px; font-weight: 600; }
 
-        .card-pink h2 { color: #ff375f; }
-        .card-blue h2 { color: #0a84ff; }
-        .card-purple h2 { color: #bf5af2; }
+        /* 포인트 컬러 (기본 화이트 테마 유지) */
+        .card-pink h2 { color: #ff2d55; }
+        .card-blue h2 { color: #007aff; }
+        .card-purple h2 { color: #af52de; }
 
-        .song-item { margin: 15px 0; }
-        
-        audio { 
-            width: 100%; height: 32px; outline: none; 
-            border-radius: 8px; 
-            filter: invert(0.9) hue-rotate(180deg) brightness(1.2);
-            opacity: 0.7;
-        }
-        
-        audio:hover { opacity: 1; }
-
-        .song-name { 
-            font-size: 11px; margin-bottom: 8px; color: #999; font-weight: 500;
-            display: flex; align-items: center;
-        }
-        
-        .song-name::before { content: '✦'; margin-right: 8px; color: #444; }
-
-        hr { border: 0; border-top: 1px solid #2a2e37; margin: 10px 0; }
-    </style>
-</head>
-<body>
-
-    <div id="star-container"></div>
-
-    <h1 class="main-title">STARRY PRIVATE ROOM</h1>
-
-    <div class="wrapper">
-        <div class="card card-pink">
-            <h2>SIDE A</h2>
-            <div class="songs-container">
-                <div class="song-item">
-                    <div class="song-name">Track 01. music1.mp3</div>
-                    <audio src="music1.mp3" controls loop></audio>
-                </div>
-                <hr>
-                <div class="song-item">
-                    <div class="song-name">Track 02. music2.mp3</div>
-                    <audio src="music2.mp3" controls loop></audio>
-                </div>
-            </div>
-        </div>
-
-        <div class="card card-blue">
-            <h2>SIDE B</h2>
-            <div class="songs-container">
-                <div class="song-item">
-                    <div class="song-name">Track 03. music3.flac</div>
-                    <audio src="music3.flac" controls loop></audio>
-                </div>
-                <hr>
-                <div class="song-item">
-                    <div class="song-name">Track 04. music4.mp3</div>
-                    <audio src="music4.mp3" controls loop></audio>
-                </div>
-            </div>
-        </div>
-
-        <div class="card card-purple">
-            <h2>SIDE C</h2>
-            <div class="songs-container">
-                <div class="song-item">
-                    <div class="song-name">Track 05. music5.flac</div>
-                    <audio src="music5.flac" controls loop></audio>
-                </div>
-                <hr>
-                <div class="song-item">
-                    <div class="song-name">Track 06. music6.flac</div>
-                    <audio src="music6.flac" controls loop></audio>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <script>
-        // 자바스크립트로 랜덤한 별 생성
-        const container = document.getElementById('star-container');
-        const starCount = 50; // 별의 개수
-
-        for (let i = 0; i < starCount; i++) {
-            const star = document.createElement('div');
-            star.className = 'star';
-            
-            // 랜덤 속성 부여
-            const size = Math.random() * 3 + 1 + 'px';
-            const left = Math.random() * 100 + 'vw';
-            const duration = Math.random() * 5 + 5 + 's';
-            const delay = Math.random() * 5 + 's';
-            
-            // 색상 랜덤 (흰색, 핑크, 블루, 퍼플)
-            const colors = ['#ffffff', '#ff375f', '#0a84ff', '#bf5af2'];
-            star.style.background = colors[Math.floor(Math.random() * colors.length)];
-            
-            star.style.width = size;
-            star.style.height = size;
-            star.style.left = left;
-            star.style.animationDuration = duration;
-            star.style.animationDelay = delay;
-            
-            container.appendChild(star);
-        }
-    </script>
-</body>
-</html>
+        .
