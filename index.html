@@ -2,7 +2,7 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <title>Minimalist Playlist</title>
+    <title>Minimalist Playlist - Loop Active</title>
     <style>
         body { 
             background: #f8f9fa; color: #333; 
@@ -26,24 +26,20 @@
 
         h2 { font-size: 14px; letter-spacing: 1px; margin-bottom: 20px; font-weight: 600; }
 
-        /* 포인트 컬러들 */
         .card-pink h2 { color: #ff2d55; }
         .card-blue h2 { color: #007aff; }
         .card-purple h2 { color: #af52de; }
 
-        .songs-container { flex-grow: 1; }
         .song-item { margin: 15px 0; }
         
-        /* 오디오 바 디자인 조정 */
         audio { 
             width: 100%; height: 32px; outline: none; 
             border-radius: 8px; 
-            /* 포인트 컬러 필터링 (간접 제어) */
             filter: grayscale(1) contrast(1.2); 
             opacity: 0.8;
         }
         
-        /* 호버 시 각 컬러 강조 */
+        /* 마우스 올리면 포인트 컬러 활성화 */
         .card-pink audio:hover { filter: sepia(100%) saturate(300%) hue-rotate(300deg); opacity: 1; }
         .card-blue audio:hover { filter: sepia(100%) saturate(300%) hue-rotate(180deg); opacity: 1; }
         .card-purple audio:hover { filter: sepia(100%) saturate(300%) hue-rotate(240deg); opacity: 1; }
@@ -53,10 +49,7 @@
             display: flex; align-items: center;
         }
         
-        /* 트랙 번호 스타일 */
-        .song-name::before {
-            content: '•'; margin-right: 8px;
-        }
+        .song-name::before { content: '•'; margin-right: 8px; }
 
         hr { border: 0; border-top: 1px solid #f0f0f0; margin: 10px 0; }
     </style>
@@ -71,12 +64,12 @@
             <div class="songs-container">
                 <div class="song-item">
                     <div class="song-name">Track 01. music1.mp3</div>
-                    <audio src="music1.mp3" controls></audio>
+                    <audio src="music1.mp3" controls loop></audio>
                 </div>
                 <hr>
                 <div class="song-item">
                     <div class="song-name">Track 02. music2.mp3</div>
-                    <audio src="music2.mp3" controls></audio>
+                    <audio src="music2.mp3" controls loop></audio>
                 </div>
             </div>
         </div>
@@ -86,12 +79,12 @@
             <div class="songs-container">
                 <div class="song-item">
                     <div class="song-name">Track 03. music3.flac</div>
-                    <audio src="music3.flac" controls></audio>
+                    <audio src="music3.flac" controls loop></audio>
                 </div>
                 <hr>
                 <div class="song-item">
                     <div class="song-name">Track 04. music4.mp3</div>
-                    <audio src="music4.mp3" controls></audio>
+                    <audio src="music4.mp3" controls loop></audio>
                 </div>
             </div>
         </div>
@@ -101,12 +94,12 @@
             <div class="songs-container">
                 <div class="song-item">
                     <div class="song-name">Track 05. music5.flac</div>
-                    <audio src="music5.flac" controls></audio>
+                    <audio src="music5.flac" controls loop></audio>
                 </div>
                 <hr>
                 <div class="song-item">
                     <div class="song-name">Track 06. music6.flac</div>
-                    <audio src="music6.flac" controls></audio>
+                    <audio src="music6.flac" controls loop></audio>
                 </div>
             </div>
         </div>
