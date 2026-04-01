@@ -2,47 +2,49 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <title>Minimalist Playlist - Vertical</title>
+    <title>Minimalist Playlist - Compact</title>
     <style>
         body { 
             background: #f8f9fa; color: #333; 
             display: flex; flex-direction: column; align-items: center; 
-            /* 세로로 길어지므로 justify-content는 제거하고 padding을 줍니다 */
-            padding: 40px 0; margin: 0; font-family: 'Apple SD Gothic Neo', sans-serif;
+            justify-content: center; /* 화면 중앙 정렬 */
+            height: 100vh; /* 화면 높이에 딱 맞춤 */
+            margin: 0; font-family: 'Apple SD Gothic Neo', sans-serif;
+            overflow: hidden; /* 스크롤바 강제 제거 */
         }
 
         .main-title {
-            font-size: 18px; letter-spacing: 3px; margin-bottom: 30px;
+            font-size: 16px; letter-spacing: 2px; margin-bottom: 20px;
             color: #222; font-weight: 300;
         }
 
-        /* 🛠️ 가로(row)에서 세로(column)로 변경 */
         .wrapper { 
             display: flex; 
             flex-direction: column; 
-            gap: 25px; 
+            gap: 12px; /* 카드 간격 축소 */
             width: 90%; 
-            max-width: 400px; /* 세로형일 때 너무 넓어지지 않게 고정 */
+            max-width: 340px; /* 가로폭 살짝 축소 */
         }
 
         .card { 
-            padding: 25px; border-radius: 15px; background: #fff; 
+            padding: 15px 20px; /* 내부 여백 축소 */
+            border-radius: 12px; background: #fff; 
             display: flex; flex-direction: column; text-align: left;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.04);
             border: 1px solid #eee;
         }
 
-        h2 { font-size: 14px; letter-spacing: 1px; margin-bottom: 20px; font-weight: 600; }
+        h2 { font-size: 12px; letter-spacing: 1px; margin-bottom: 10px; font-weight: 600; }
 
         .card-pink h2 { color: #ff2d55; }
         .card-blue h2 { color: #007aff; }
         .card-purple h2 { color: #af52de; }
 
-        .song-item { margin: 15px 0; }
+        .song-item { margin: 8px 0; } /* 아이템 간격 축소 */
         
         audio { 
-            width: 100%; height: 32px; outline: none; 
-            border-radius: 8px; 
+            width: 100%; height: 28px; outline: none; 
+            border-radius: 6px; 
             filter: grayscale(1) contrast(1.2); 
             opacity: 0.8;
         }
@@ -52,13 +54,13 @@
         .card-purple audio:hover { filter: sepia(100%) saturate(300%) hue-rotate(240deg); opacity: 1; }
 
         .song-name { 
-            font-size: 12px; margin-bottom: 8px; color: #666; font-weight: 500;
+            font-size: 11px; margin-bottom: 5px; color: #666; font-weight: 500;
             display: flex; align-items: center;
         }
         
-        .song-name::before { content: '•'; margin-right: 8px; }
+        .song-name::before { content: '•'; margin-right: 6px; }
 
-        hr { border: 0; border-top: 1px solid #f0f0f0; margin: 10px 0; }
+        hr { border: 0; border-top: 1px solid #f0f0f0; margin: 5px 0; }
     </style>
 </head>
 <body>
@@ -68,46 +70,40 @@
     <div class="wrapper">
         <div class="card card-pink">
             <h2>SIDE A</h2>
-            <div class="songs-container">
-                <div class="song-item">
-                    <div class="song-name">Track 01. music1.mp3</div>
-                    <audio src="music1.mp3" controls loop></audio>
-                </div>
-                <hr>
-                <div class="song-item">
-                    <div class="song-name">Track 02. music2.mp3</div>
-                    <audio src="music2.mp3" controls loop></audio>
-                </div>
+            <div class="song-item">
+                <div class="song-name">Track 01. music1.mp3</div>
+                <audio src="music1.mp3" controls loop></audio>
+            </div>
+            <hr>
+            <div class="song-item">
+                <div class="song-name">Track 02. music2.mp3</div>
+                <audio src="music2.mp3" controls loop></audio>
             </div>
         </div>
 
         <div class="card card-blue">
             <h2>SIDE B</h2>
-            <div class="songs-container">
-                <div class="song-item">
-                    <div class="song-name">Track 03. music3.flac</div>
-                    <audio src="music3.flac" controls loop></audio>
-                </div>
-                <hr>
-                <div class="song-item">
-                    <div class="song-name">Track 04. music4.mp3</div>
-                    <audio src="music4.mp3" controls loop></audio>
-                </div>
+            <div class="song-item">
+                <div class="song-name">Track 03. music3.flac</div>
+                <audio src="music3.flac" controls loop></audio>
+            </div>
+            <hr>
+            <div class="song-item">
+                <div class="song-name">Track 04. music4.mp3</div>
+                <audio src="music4.mp3" controls loop></audio>
             </div>
         </div>
 
         <div class="card card-purple">
             <h2>SIDE C</h2>
-            <div class="songs-container">
-                <div class="song-item">
-                    <div class="song-name">Track 05. music5.flac</div>
-                    <audio src="music5.flac" controls loop></audio>
-                </div>
-                <hr>
-                <div class="song-item">
-                    <div class="song-name">Track 06. music6.flac</div>
-                    <audio src="music6.flac" controls loop></audio>
-                </div>
+            <div class="song-item">
+                <div class="song-name">Track 05. music5.flac</div>
+                <audio src="music5.flac" controls loop></audio>
+            </div>
+            <hr>
+            <div class="song-item">
+                <div class="song-name">Track 06. music6.flac</div>
+                <audio src="music6.flac" controls loop></audio>
             </div>
         </div>
     </div>
