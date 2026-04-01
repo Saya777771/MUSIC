@@ -2,24 +2,32 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <title>Minimalist Playlist - Pure White</title>
+    <title>Minimalist Playlist - Vertical</title>
     <style>
         body { 
             background: #f8f9fa; color: #333; 
-            display: flex; flex-direction: column; justify-content: center; align-items: center; 
-            min-height: 100vh; margin: 0; font-family: 'Apple SD Gothic Neo', sans-serif;
+            display: flex; flex-direction: column; align-items: center; 
+            /* 세로로 길어지므로 justify-content는 제거하고 padding을 줍니다 */
+            padding: 40px 0; margin: 0; font-family: 'Apple SD Gothic Neo', sans-serif;
         }
 
         .main-title {
-            font-size: 18px; letter-spacing: 3px; margin-bottom: 40px;
+            font-size: 18px; letter-spacing: 3px; margin-bottom: 30px;
             color: #222; font-weight: 300;
         }
 
-        .wrapper { display: flex; gap: 20px; align-items: stretch; max-width: 1200px; }
+        /* 🛠️ 가로(row)에서 세로(column)로 변경 */
+        .wrapper { 
+            display: flex; 
+            flex-direction: column; 
+            gap: 25px; 
+            width: 90%; 
+            max-width: 400px; /* 세로형일 때 너무 넓어지지 않게 고정 */
+        }
 
         .card { 
             padding: 25px; border-radius: 15px; background: #fff; 
-            width: 300px; display: flex; flex-direction: column; text-align: left;
+            display: flex; flex-direction: column; text-align: left;
             box-shadow: 0 10px 30px rgba(0,0,0,0.05);
             border: 1px solid #eee;
         }
@@ -39,7 +47,6 @@
             opacity: 0.8;
         }
         
-        /* 마우스 올리면 포인트 컬러 활성화 */
         .card-pink audio:hover { filter: sepia(100%) saturate(300%) hue-rotate(300deg); opacity: 1; }
         .card-blue audio:hover { filter: sepia(100%) saturate(300%) hue-rotate(180deg); opacity: 1; }
         .card-purple audio:hover { filter: sepia(100%) saturate(300%) hue-rotate(240deg); opacity: 1; }
