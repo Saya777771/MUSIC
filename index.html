@@ -2,7 +2,7 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <title>Minimalist Playlist - Hover Fixed</title>
+    <title>Minimalist Playlist - Final Corrected</title>
     <style>
         body { 
             background: #f8f9fa; color: #333; 
@@ -44,7 +44,7 @@
 
         h2 { font-size: 12px; letter-spacing: 1px; margin-bottom: 10px; font-weight: 600; }
 
-        /* 제목 색상 설정 */
+        /* 제목 색상 설정 (원래의 선명한 톤) */
         .card-pink h2 { color: #ff2d55; }
         .card-blue h2 { color: #007aff; }
         .card-purple h2 { color: #af52de; }
@@ -57,20 +57,25 @@
             width: 100%; height: 28px; outline: none; 
             border-radius: 6px; 
             filter: grayscale(1) contrast(1.2); 
-            opacity: 0.8; /* 평상시 투명도 원래대로 복구 */
+            opacity: 0.8; /* 평상시 상태 그대로 유지 */
         }
         
-        /* 마우스 호버 시: 제목 색상과 맞추되 채도(saturate)를 낮춰 연하게 조절 */
-        /* Pink - Side A */
-        .card-pink audio:hover { filter: sepia(100%) saturate(150%) hue-rotate(310deg); opacity: 1; }
-        /* Blue - Side B */
+        /* 마우스 호버 시: 각 제목 색상과 일치시키되, 채도를 낮춰 연하게 표현 (초록색 방지) */
+        
+        /* Pink (Side A) - 연한 핑크 */
+        .card-pink audio:hover { filter: sepia(100%) saturate(150%) hue-rotate(305deg); opacity: 1; }
+        
+        /* Blue (Side B) - 연한 블루 */
         .card-blue audio:hover { filter: sepia(100%) saturate(150%) hue-rotate(185deg); opacity: 1; }
-        /* Purple - Side C */
+        
+        /* Purple (Side C) - 연한 퍼플 */
         .card-purple audio:hover { filter: sepia(100%) saturate(150%) hue-rotate(245deg); opacity: 1; }
-        /* Orange - New Side A */
-        .card-orange audio:hover { filter: sepia(100%) saturate(150%) hue-rotate(15deg); opacity: 1; }
-        /* Amber - New Side B */
-        .card-amber audio:hover { filter: sepia(100%) saturate(150%) hue-rotate(40deg); opacity: 1; }
+        
+        /* Orange (New Side A) - 연한 주황 (초록색 안 나오게 각도 조정) */
+        .card-orange audio:hover { filter: sepia(100%) saturate(150%) hue-rotate(350deg); opacity: 1; }
+        
+        /* Amber (New Side B) - 연한 노랑 (초록색 안 나오게 각도 조정) */
+        .card-amber audio:hover { filter: sepia(100%) saturate(150%) hue-rotate(15deg); opacity: 1; }
 
         .song-name { 
             font-size: 11px; margin-bottom: 5px; color: #666; font-weight: 500;
@@ -88,14 +93,23 @@
     <div class="wrapper">
         <div class="card card-orange pos-center-1">
             <h2>New Side A</h2>
-            <div class="song-item"><div class="song-name">music7.flac</div><audio src="music7.flac" controls loop></audio></div>
+            <div class="song-item">
+                <div class="song-name">music7.flac</div>
+                <audio src="music7.flac" controls loop></audio>
+            </div>
             <hr>
-            <div class="song-item"><div class="song-name">music8.flac</div><audio src="music8.flac" controls loop></audio></div>
+            <div class="song-item">
+                <div class="song-name">music8.flac</div>
+                <audio src="music8.flac" controls loop></audio>
+            </div>
         </div>
 
         <div class="card card-amber pos-center-2">
             <h2>New Side B</h2>
-            <div class="song-item"><div class="song-name">music9.mp3</div><audio src="music9.mp3" controls loop></audio></div>
+            <div class="song-item">
+                <div class="song-name">music9.mp3</div>
+                <audio src="music9.mp3" controls loop></audio>
+            </div>
         </div>
 
         <div class="card card-pink pos-left-1">
