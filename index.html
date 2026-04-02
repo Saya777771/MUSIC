@@ -2,7 +2,7 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <title>Minimalist Playlist - Real Yellow Fixed</title>
+    <title>Minimalist Playlist - Final Version</title>
     <style>
         body { 
             background: #f8f9fa; color: #333; 
@@ -35,7 +35,7 @@
             border: 1px solid #eee;
         }
 
-        /* 위치 설정 */
+        /* 위치 지정 */
         .pos-left-1 { grid-column: 1; grid-row: 1; }
         .pos-left-2 { grid-column: 1; grid-row: 2; }
         .pos-left-3 { grid-column: 1; grid-row: 3; }
@@ -48,8 +48,8 @@
         .card-pink h2 { color: #ff2d55; }
         .card-blue h2 { color: #007aff; }
         .card-purple h2 { color: #af52de; }
-        .card-orange h2 { color: #ff9500; } /* New Side A: 주황 */
-        .card-amber h2 { color: #ffcc00; }  /* New Side B: 노랑 */
+        .card-orange h2 { color: #ff9500; } /* New Side A: 주황색 */
+        .card-amber h2 { color: #ffcc00; }  /* New Side B: 노란색 */
 
         .song-item { margin: 8px 0; } 
         
@@ -60,15 +60,15 @@
             opacity: 0.8;
         }
         
-        /* 마우스 호버 시: 각 제목에 맞춘 "연한" 유채색 */
+        /* 마우스 호버 시: 제목과 일치하는 연한 색상 (노랑-초록 방지 완료) */
         .card-pink audio:hover { filter: sepia(100%) saturate(150%) hue-rotate(305deg); opacity: 1; }
         .card-blue audio:hover { filter: sepia(100%) saturate(150%) hue-rotate(185deg); opacity: 1; }
         .card-purple audio:hover { filter: sepia(100%) saturate(150%) hue-rotate(245deg); opacity: 1; }
         
-        /* [New Side A - 주황색] */
+        /* New Side A - 주황 */
         .card-orange audio:hover { filter: sepia(100%) saturate(180%) hue-rotate(350deg); opacity: 1; }
         
-        /* [New Side B - 노란색] 초록색 방지를 위해 각도를 5도까지 낮췄습니다 */
+        /* New Side B - 노랑 (각도를 낮춰서 초록색 차단) */
         .card-amber audio:hover { filter: sepia(100%) saturate(250%) hue-rotate(10deg); opacity: 1; }
 
         .song-name { 
@@ -93,8 +93,7 @@
             </div>
             <hr>
             <div class="song-item">
-                <div class="song-name">music8.flac</div>
-                <audio src="music8.flac" controls loop></audio>
+                <div class="song-name">music8.mp3</div> <audio src="music8.mp3" controls loop></audio>
             </div>
         </div>
 
