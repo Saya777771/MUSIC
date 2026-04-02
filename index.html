@@ -2,7 +2,7 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <title>Minimalist Playlist - 3x3 Grid Updated</title>
+    <title>Minimalist Playlist - Clean 3x3</title>
     <style>
         body { 
             background: #f8f9fa; color: #333; 
@@ -39,8 +39,7 @@
         .pos-left-1 { grid-column: 1; grid-row: 1; }
         .pos-left-2 { grid-column: 1; grid-row: 2; }
         .pos-left-3 { grid-column: 1; grid-row: 3; }
-        .pos-center-1 { grid-column: 2; grid-row: 1; } /* Music 7 */
-        .pos-center-2 { grid-column: 2; grid-row: 2; } /* Music 8 */
+        .pos-center-top { grid-column: 2; grid-row: 1; } /* 7, 8번 합쳐진 카드 */
 
         h2 { font-size: 12px; letter-spacing: 1px; margin-bottom: 10px; font-weight: 600; }
 
@@ -77,18 +76,15 @@
     <h1 class="main-title">MY PRIVATE PLAYLIST</h1>
 
     <div class="wrapper">
-        <div class="card card-orange pos-center-1">
-            <h2>NEW SIDE A</h2>
+        <div class="card card-orange pos-center-top">
+            <h2>NEW SIDE</h2>
             <div class="song-item">
-                <div class="song-name">Track 07. music7.flac</div>
+                <div class="song-name">music7.flac</div>
                 <audio src="music7.flac" controls loop></audio>
             </div>
-        </div>
-
-        <div class="card card-orange pos-center-2">
-            <h2>NEW SIDE B</h2>
+            <hr>
             <div class="song-item">
-                <div class="song-name">Track 08. music8.mp3</div>
+                <div class="song-name">music8.mp3</div>
                 <audio src="music8.mp3" controls loop></audio>
             </div>
         </div>
@@ -96,12 +92,12 @@
         <div class="card card-pink pos-left-1">
             <h2>SIDE A</h2>
             <div class="song-item">
-                <div class="song-name">Track 01. music1.mp3</div>
+                <div class="song-name">music1.mp3</div>
                 <audio src="music1.mp3" controls loop></audio>
             </div>
             <hr>
             <div class="song-item">
-                <div class="song-name">Track 02. music2.mp3</div>
+                <div class="song-name">music2.mp3</div>
                 <audio src="music2.mp3" controls loop></audio>
             </div>
         </div>
@@ -109,12 +105,12 @@
         <div class="card card-blue pos-left-2">
             <h2>SIDE B</h2>
             <div class="song-item">
-                <div class="song-name">Track 03. music3.flac</div>
+                <div class="song-name">music3.flac</div>
                 <audio src="music3.flac" controls loop></audio>
             </div>
             <hr>
             <div class="song-item">
-                <div class="song-name">Track 04. music4.mp3</div>
+                <div class="song-name">music4.mp3</div>
                 <audio src="music4.mp3" controls loop></audio>
             </div>
         </div>
@@ -122,12 +118,12 @@
         <div class="card card-purple pos-left-3">
             <h2>SIDE C</h2>
             <div class="song-item">
-                <div class="song-name">Track 05. music5.flac</div>
+                <div class="song-name">music5.flac</div>
                 <audio src="music5.flac" controls loop></audio>
             </div>
             <hr>
             <div class="song-item">
-                <div class="song-name">Track 06. music6.flac</div>
+                <div class="song-name">music6.flac</div>
                 <audio src="music6.flac" controls loop></audio>
             </div>
         </div>
