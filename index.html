@@ -2,10 +2,10 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <title>Minimalist Playlist - Original Restore</title>
+    <title>Minimalist Playlist - Soft Pastel</title>
     <style>
         body { 
-            background: #f8f9fa; color: #333; 
+            background: #fcfcfc; color: #444; 
             display: flex; flex-direction: column; align-items: center; 
             justify-content: center; 
             height: 100vh; 
@@ -14,25 +14,25 @@
         }
 
         .main-title {
-            font-size: 16px; letter-spacing: 2px; margin-bottom: 20px;
-            color: #222; font-weight: 300;
+            font-size: 15px; letter-spacing: 2px; margin-bottom: 25px;
+            color: #888; font-weight: 300;
         }
 
         .wrapper { 
             display: grid;
             grid-template-columns: repeat(3, 1fr); 
             grid-template-rows: repeat(3, auto);   
-            gap: 15px; 
+            gap: 18px; 
             width: 95%; 
             max-width: 1000px; 
         }
 
         .card { 
-            padding: 15px 20px; 
-            border-radius: 12px; background: #fff; 
+            padding: 18px 22px; 
+            border-radius: 14px; background: #fff; 
             display: flex; flex-direction: column; text-align: left;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.04);
-            border: 1px solid #eee;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+            border: 1px solid #f0f0f0;
         }
 
         /* 위치 설정 */
@@ -42,39 +42,43 @@
         .pos-center-1 { grid-column: 2; grid-row: 1; } 
         .pos-center-2 { grid-column: 2; grid-row: 2; } 
 
-        h2 { font-size: 12px; letter-spacing: 1px; margin-bottom: 10px; font-weight: 600; }
+        h2 { font-size: 11px; letter-spacing: 1.5px; margin-bottom: 12px; font-weight: 600; text-transform: uppercase; }
 
-        .card-pink h2 { color: #ff2d55; }
-        .card-blue h2 { color: #007aff; }
-        .card-purple h2 { color: #af52de; }
-        .card-orange h2 { color: #ff9500; }
-        .card-amber h2 { color: #ffcc00; } 
+        /* 연한 파스텔 톤 제목 색상 */
+        .card-pink h2 { color: #f4a2b3; }    /* 연핑크 */
+        .card-blue h2 { color: #a2c2f4; }    /* 연하늘 */
+        .card-purple h2 { color: #c2a2f4; }  /* 연보라 */
+        .card-orange h2 { color: #f4c2a2; }  /* 연주황 */
+        .card-amber h2 { color: #f4e2a2; }   /* 연노랑 */
 
         .song-item { margin: 8px 0; } 
         
         audio { 
-            width: 100%; height: 28px; outline: none; 
+            width: 100%; height: 26px; outline: none; 
             border-radius: 6px; 
-            filter: grayscale(1) contrast(1.2); 
-            opacity: 0.8;
+            filter: grayscale(1) opacity(0.3); /* 평소에는 아주 연하게 */
+            transition: all 0.4s ease;
         }
         
-        /* [1~6번] 사용자가 주신 원본 호버 값 그대로 복구 */
-        .card-pink audio:hover { filter: sepia(100%) saturate(300%) hue-rotate(300deg); opacity: 1; }
-        .card-blue audio:hover { filter: sepia(100%) saturate(300%) hue-rotate(180deg); opacity: 1; }
-        .card-purple audio:hover { filter: sepia(100%) saturate(300%) hue-rotate(240deg); opacity: 1; }
-        
-        /* [7, 8, 9번] 새로운 카드 호버 값 (차분하게 조정) */
-        .card-orange audio:hover { filter: sepia(100%) saturate(300%) hue-rotate(15deg); opacity: 1; }
-        .card-amber audio:hover { filter: sepia(100%) saturate(300%) hue-rotate(40deg); opacity: 1; }
+        /* 마우스 호버 시 - 각 제목색과 일치하는 연한 유채색 */
+        /* 연핑크 */
+        .card-pink audio:hover { filter: sepia(100%) saturate(150%) hue-rotate(310deg) brightness(1.1); opacity: 1; }
+        /* 연하늘 */
+        .card-blue audio:hover { filter: sepia(100%) saturate(150%) hue-rotate(180deg) brightness(1.1); opacity: 1; }
+        /* 연보라 */
+        .card-purple audio:hover { filter: sepia(100%) saturate(150%) hue-rotate(240deg) brightness(1.1); opacity: 1; }
+        /* 연주황 */
+        .card-orange audio:hover { filter: sepia(100%) saturate(150%) hue-rotate(10deg) brightness(1.1); opacity: 1; }
+        /* 연노랑 */
+        .card-amber audio:hover { filter: sepia(100%) saturate(150%) hue-rotate(30deg) brightness(1.1); opacity: 1; }
 
         .song-name { 
-            font-size: 11px; margin-bottom: 5px; color: #666; font-weight: 500;
+            font-size: 10.5px; margin-bottom: 6px; color: #999; font-weight: 400;
             display: flex; align-items: center;
         }
         
-        .song-name::before { content: '•'; margin-right: 6px; }
-        hr { border: 0; border-top: 1px solid #f0f0f0; margin: 5px 0; }
+        .song-name::before { content: '•'; margin-right: 8px; color: inherit; opacity: 0.5; }
+        hr { border: 0; border-top: 1px solid #f8f8f8; margin: 6px 0; }
     </style>
 </head>
 <body>
@@ -83,7 +87,7 @@
 
     <div class="wrapper">
         <div class="card card-orange pos-center-1">
-            <h2>NEW SIDE A</h2>
+            <h2>New Side A</h2>
             <div class="song-item">
                 <div class="song-name">music7.flac</div>
                 <audio src="music7.flac" controls loop></audio>
@@ -96,7 +100,7 @@
         </div>
 
         <div class="card card-amber pos-center-2">
-            <h2>NEW SIDE B</h2>
+            <h2>New Side B</h2>
             <div class="song-item">
                 <div class="song-name">music9.mp3</div>
                 <audio src="music9.mp3" controls loop></audio>
@@ -104,21 +108,21 @@
         </div>
 
         <div class="card card-pink pos-left-1">
-            <h2>SIDE A</h2>
+            <h2>Side A</h2>
             <div class="song-item"><div class="song-name">music1.mp3</div><audio src="music1.mp3" controls loop></audio></div>
             <hr>
             <div class="song-item"><div class="song-name">music2.mp3</div><audio src="music2.mp3" controls loop></audio></div>
         </div>
 
         <div class="card card-blue pos-left-2">
-            <h2>SIDE B</h2>
+            <h2>Side B</h2>
             <div class="song-item"><div class="song-name">music3.flac</div><audio src="music3.flac" controls loop></audio></div>
             <hr>
             <div class="song-item"><div class="song-name">music4.mp3</div><audio src="music4.mp3" controls loop></audio></div>
         </div>
 
         <div class="card card-purple pos-left-3">
-            <h2>SIDE C</h2>
+            <h2>Side C</h2>
             <div class="song-item"><div class="song-name">music5.flac</div><audio src="music5.flac" controls loop></audio></div>
             <hr>
             <div class="song-item"><div class="song-name">music6.flac</div><audio src="music6.flac" controls loop></audio></div>
