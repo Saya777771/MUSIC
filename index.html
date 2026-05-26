@@ -60,4 +60,99 @@
             padding: 2px 6px;
             border-radius: 20px;
             background: linear-gradient(45deg, #ff2d55, #ff9500, #4cd964, #5ac8fa, #007aff, #5856d6, #ff2d55);
-            background-size: 400
+            background-size: 400% 400%;
+            animation: rainbow-glow 8s ease infinite;
+            letter-spacing: 0.5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        @keyframes rainbow-glow {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* 제목 색상 */
+        .card-pink h2 { color: #ff2d55; }
+        .card-blue h2 { color: #007aff; }
+        .card-purple h2 { color: #af52de; }
+        .card-orange h2 { color: #ff9500; }
+        .card-cyan h2 { color: #5ac8fa; }
+
+        .song-item { margin: 8px 0; } 
+        
+        audio { 
+            width: 100%; height: 28px; outline: none; 
+            border-radius: 6px; 
+            filter: grayscale(1) contrast(1.2); 
+            opacity: 0.8;
+        }
+        
+        .card-pink audio:hover { filter: sepia(100%) saturate(150%) hue-rotate(305deg); opacity: 1; }
+        .card-blue audio:hover { filter: sepia(100%) saturate(150%) hue-rotate(185deg); opacity: 1; }
+        .card-purple audio:hover { filter: sepia(100%) saturate(150%) hue-rotate(245deg); opacity: 1; }
+        .card-orange audio:hover { filter: sepia(100%) saturate(180%) hue-rotate(350deg); opacity: 1; }
+        .card-cyan audio:hover { filter: sepia(100%) saturate(150%) hue-rotate(160deg); opacity: 1; }
+
+        .song-name { 
+            font-size: 11px; margin-bottom: 5px; color: #666; font-weight: 500;
+            display: flex; align-items: center;
+        }
+        
+        .song-name::before { content: '•'; margin-right: 6px; }
+        hr { border: 0; border-top: 1px solid #f0f0f0; margin: 5px 0; }
+    </style>
+</head>
+<body>
+
+    <h1 class="main-title">MY PRIVATE PLAYLIST</h1>
+
+    <div class="wrapper">
+        <div class="card card-cyan pos-center-2">
+            <div class="title-wrapper">
+                <h2>New Side B</h2>
+                <span class="badge-new">NEW</span>
+            </div>
+            <div class="song-item">
+                <div class="song-name">music9.MP3</div>
+                <audio src="music9.MP3" controls loop></audio>
+            </div>
+        </div>
+
+        <div class="card card-orange pos-center-1">
+            <div class="title-wrapper"><h2>New Side A</h2></div>
+            <div class="song-item">
+                <div class="song-name">music7.flac</div>
+                <audio src="music7.flac" controls loop></audio>
+            </div>
+            <hr>
+            <div class="song-item">
+                <div class="song-name">music8.mp3</div>
+                <audio src="music8.mp3" controls loop></audio>
+            </div>
+        </div>
+
+        <div class="card card-pink pos-left-1">
+            <div class="title-wrapper"><h2>Side A</h2></div>
+            <div class="song-item"><div class="song-name">music1.mp3</div><audio src="music1.mp3" controls loop></audio></div>
+            <hr>
+            <div class="song-item"><div class="song-name">music2.mp3</div><audio src="music2.mp3" controls loop></audio></div>
+        </div>
+
+        <div class="card card-blue pos-left-2">
+            <div class="title-wrapper"><h2>Side B</h2></div>
+            <div class="song-item"><div class="song-name">music3.mp3</div><audio src="music3.mp3" controls loop></audio></div>
+            <hr>
+            <div class="song-item"><div class="song-name">music4.flac</div><audio src="music4.flac" controls loop></audio></div>
+        </div>
+
+        <div class="card card-purple pos-left-3">
+            <div class="title-wrapper"><h2>Side C</h2></div>
+            <div class="song-item"><div class="song-name">music5.flac</div><audio src="music5.flac" controls loop></audio></div>
+            <hr>
+            <div class="song-item"><div class="song-name">music6.flac</div><audio src="music6.flac" controls loop></audio></div>
+        </div>
+    </div>
+
+</body>
+</html>
