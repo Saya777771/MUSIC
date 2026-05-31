@@ -53,20 +53,13 @@ margin-bottom: 10px;
 
 h2 { font-size: 12px; letter-spacing: 1px; margin: 0; font-weight: 600; }
 
-/* 무지개 NEW 뱃지 */
-.badge-new {
+/* 무지개 뱃지 공통 */
+.badge-rainbow {
 font-size: 9px; font-weight: 800; color: #fff;
 padding: 2px 6px; border-radius: 20px;
 background: linear-gradient(45deg, #ff2d55, #ff9500, #4cd964, #5ac8fa, #007aff, #5856d6, #ff2d55);
 background-size: 400% 400%;
 animation: rainbow-glow 8s ease infinite;
-}
-
-/* 추천곡 뱃지 */
-.badge-recommend {
-font-size: 8px; font-weight: 700; color: #000;
-padding: 2px 8px; border-radius: 4px;
-background: #fff; letter-spacing: 0.5px;
 }
 
 @keyframes rainbow-glow {
@@ -81,10 +74,7 @@ background: #fff; letter-spacing: 0.5px;
 .card-purple h2 { color: #af52de; }
 .card-orange h2 { color: #ff9500; }
 .card-cyan h2 { color: #5ac8fa; }
-.card-black { background: #111; border: none; }
-.card-black h2 { color: #fff; }
-.card-black .song-name { color: #aaa; }
-.card-black hr { border-top: 1px solid #333; }
+.card-black-title h2 { color: #000; } /* 제목만 검정색 */
 
 .song-item { margin: 8px 0; }
 audio {
@@ -136,20 +126,20 @@ hr { border: 0; border-top: 1px solid #f0f0f0; margin: 5px 0; }
 </div>
 
 <div class="card card-cyan pos-center-2">
-<div class="title-wrapper"><h2>New Side B</h2><span class="badge-new">NEW</span></div>
+<div class="title-wrapper"><h2>New Side B</h2><span class="badge-rainbow">NEW</span></div>
 <div class="song-item"><div class="song-name">music9.flac</div><audio src="music9.flac" controls loop></audio></div>
 <hr>
 <div class="song-item"><div class="song-name">music10.flac</div><audio src="music10.flac" controls loop></audio></div>
 </div>
 
-<div class="card card-black pos-center-3">
+<div class="card card-black-title pos-center-3">
 <div class="title-wrapper">
 <h2>New Side C</h2>
-<span class="badge-recommend">추천곡</span>
+<span class="badge-rainbow">추천곡</span>
 </div>
 <div class="song-item">
-<div class="song-name">music10.flac</div>
-<audio src="music10.flac" controls loop></audio>
+<div class="song-name">music11.flac</div>
+<audio src="music11.flac" controls loop></audio>
 </div>
 </div>
 
