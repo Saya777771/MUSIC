@@ -20,7 +20,7 @@ body { background: #f8f9fa; color: #333; display: flex; flex-direction: column; 
 .title-wrapper { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; }
 h2 { font-size: 12px; letter-spacing: 1px; margin: 0; font-weight: 600; }
 
-/* 수정된 PICK 뱃지 */
+/* 무지개 뱃지 스타일 */
 .badge-rainbow {
     font-size: 8px; font-weight: 800; color: #fff;
     padding: 3px 8px; border-radius: 4px;
@@ -52,19 +52,22 @@ hr { border: 0; border-top: 1px solid #f0f0f0; margin: 5px 0; }
 <body>
 
 <h1 class="main-title">MY PRIVATE PLAYLIST</h1>
+
 <div class="wrapper">
-    <!-- 생략 가능: 기존 카드들 -->
+    <!-- Side A/B/C -->
     <div class="card card-pink pos-left-1"><div class="title-wrapper"><h2>Side A</h2></div><div class="song-item"><div class="song-name">music1.mp3</div><audio src="music1.mp3" controls loop></audio></div><hr><div class="song-item"><div class="song-name">music2.mp3</div><audio src="music2.mp3" controls loop></audio></div></div>
     <div class="card card-blue pos-left-2"><div class="title-wrapper"><h2>Side B</h2></div><div class="song-item"><div class="song-name">music3.mp3</div><audio src="music3.mp3" controls loop></audio></div><hr><div class="song-item"><div class="song-name">music4.flac</div><audio src="music4.flac" controls loop></audio></div></div>
     <div class="card card-purple pos-left-3"><div class="title-wrapper"><h2>Side C</h2></div><div class="song-item"><div class="song-name">music5.flac</div><audio src="music5.flac" controls loop></audio></div><hr><div class="song-item"><div class="song-name">music6.flac</div><audio src="music6.flac" controls loop></audio></div></div>
+
+    <!-- New Side A/B -->
     <div class="card card-orange pos-center-1"><div class="title-wrapper"><h2>New Side A</h2></div><div class="song-item"><div class="song-name">music7.flac</div><audio src="music7.flac" controls loop></audio></div><hr><div class="song-item"><div class="song-name">music8.mp3</div><audio src="music8.mp3" controls loop></audio></div></div>
-    <div class="card card-cyan pos-center-2"><div class="title-wrapper"><h2>New Side B</h2><span class="badge-rainbow">NEW</span></div><div class="song-item"><div class="song-name">music9.flac</div><audio src="music9.flac" controls loop></audio></div><hr><div class="song-item"><div class="song-name">music10.flac</div><audio src="music10.flac" controls loop></audio></div></div>
+    <div class="card card-cyan pos-center-2"><div class="title-wrapper"><h2>New Side B</h2></div><div class="song-item"><div class="song-name">music9.flac</div><audio src="music9.flac" controls loop></audio></div><hr><div class="song-item"><div class="song-name">music10.flac</div><audio src="music10.flac" controls loop></audio></div></div>
     
     <!-- New Side C -->
     <div class="card card-black-title pos-center-3">
         <div class="title-wrapper">
             <h2>New Side C</h2>
-            <span class="badge-rainbow">PICK</span>
+            <span class="badge-rainbow">NEW</span>
         </div>
         <div class="song-item">
             <div class="song-name">music11.flac</div>
@@ -72,5 +75,6 @@ hr { border: 0; border-top: 1px solid #f0f0f0; margin: 5px 0; }
         </div>
     </div>
 </div>
+
 </body>
 </html>
