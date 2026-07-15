@@ -7,8 +7,8 @@
 body { background: #f8f9fa; color: #333; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; margin: 0; font-family: 'Apple SD Gothic Neo', sans-serif; overflow: hidden; }
 .main-title { font-size: 16px; letter-spacing: 2px; margin-bottom: 20px; color: #222; font-weight: 300; }
 
-/* 4열 배치를 위해 repeat(3, ~)을 repeat(4, ~)로 변경하고 max-width를 소폭 확장했습니다 */
-.wrapper { display: grid; grid-template-columns: repeat(4, 1fr); grid-template-rows: repeat(3, auto); gap: 15px; width: 95%; max-width: 1200px; }
+/* 5열 배치를 위해 repeat(4, ~)를 repeat(5, ~)로 변경하고 max-width를 1400px로 확장했습니다 */
+.wrapper { display: grid; grid-template-columns: repeat(5, 1fr); grid-template-rows: repeat(3, auto); gap: 15px; width: 95%; max-width: 1400px; }
 .card { padding: 15px 20px; border-radius: 12px; background: #fff; display: flex; flex-direction: column; text-align: left; box-shadow: 0 5px 20px rgba(0,0,0,0.04); border: 1px solid #eee; }
 
 /* 열(Column) 위치 지정 정의 */
@@ -22,9 +22,13 @@ body { background: #f8f9fa; color: #333; display: flex; flex-direction: column; 
 .pos-right-2 { grid-column: 3; grid-row: 2; }
 .pos-right-3 { grid-column: 3; grid-row: 3; }
 
-/* 새로 추가된 4번째 열(가장 오른쪽) 위치 지정 */
+/* 4번째 열 위치 지정 */
 .pos-far-right-1 { grid-column: 4; grid-row: 1; }
-.pos-far-right-2 { grid-column: 4; grid-row: 2; } /* music21 추가를 위한 위치 정의 */
+.pos-far-right-2 { grid-column: 4; grid-row: 2; }
+.pos-far-right-3 { grid-column: 4; grid-row: 3; } /* music22 추가를 위한 위치 */
+
+/* 5번째 열 위치 지정 */
+.pos-deep-right-1 { grid-column: 5; grid-row: 1; } /* music23 추가를 위한 위치 */
 
 .title-wrapper { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; }
 h2 { font-size: 12px; letter-spacing: 1px; margin: 0; font-weight: 600; }
@@ -130,14 +134,37 @@ hr { border: 0; border-top: 1px solid #f0f0f0; margin: 5px 0; }
         </div>
     </div>
 
+    <!-- 4번째 열 2번째 줄(pos-far-right-2) - music21 카드 (NEW 마크 제거 및 검정색 타이틀 유지) -->
     <div class="card card-black-title pos-far-right-2">
         <div class="title-wrapper">
             <h2>Next Side E</h2>
-            <span class="badge-rainbow">NEW</span>
         </div>
         <div class="song-item">
             <div class="song-name">music21.mp3</div>
             <audio src="music21.mp3" controls loop></audio>
+        </div>
+    </div>
+
+    <!-- 4번째 열 3번째 줄(pos-far-right-3) - music22 카드 새로 추가 (검정색 타이틀) -->
+    <div class="card card-black-title pos-far-right-3">
+        <div class="title-wrapper">
+            <h2>Next Side F</h2>
+        </div>
+        <div class="song-item">
+            <div class="song-name">music22.mp3</div>
+            <audio src="music22.mp3" controls loop></audio>
+        </div>
+    </div>
+
+    <!-- 5번째 열 1번째 줄(pos-deep-right-1) - music23 카드 새로 추가 (검정색 타이틀 + NEW 마크 이동 완료) -->
+    <div class="card card-black-title pos-deep-right-1">
+        <div class="title-wrapper">
+            <h2>Next Side G</h2>
+            <span class="badge-rainbow">NEW</span>
+        </div>
+        <div class="song-item">
+            <div class="song-name">music23.mp3</div>
+            <audio src="music23.mp3" controls loop></audio>
         </div>
     </div>
 </div>
