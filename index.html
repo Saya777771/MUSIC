@@ -2,13 +2,70 @@
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
-<title>Minimalist Playlist - Final Version</title>
+<title>Minimalist Playlist - Tab Version</title>
 <style>
-body { background: #f8f9fa; color: #333; display: flex; flex-direction: column; align-items: center; justify-content: flex-start; min-height: 100vh; margin: 0; padding: 30px 0; font-family: 'Apple SD Gothic Neo', sans-serif; }
-.main-title { font-size: 16px; letter-spacing: 2px; margin-bottom: 20px; color: #222; font-weight: 300; }
+* { box-sizing: border-box; }
+body { 
+    background: #f8f9fa; 
+    color: #333; 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    justify-content: flex-start; 
+    min-height: 100vh; 
+    margin: 0; 
+    padding: 20px 0; 
+    font-family: 'Apple SD Gothic Neo', sans-serif; 
+}
 
-.wrapper { display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; width: 95%; max-width: 1200px; }
-.card { padding: 15px 20px; border-radius: 12px; background: #fff; display: flex; flex-direction: column; text-align: left; box-shadow: 0 5px 20px rgba(0,0,0,0.04); border: 1px solid #eee; }
+.main-title { 
+    font-size: 16px; 
+    letter-spacing: 2px; 
+    margin-bottom: 10px; 
+    color: #222; 
+    font-weight: 300; 
+}
+
+/* 탭 전환 버튼 스타일 */
+.tab-btn {
+    background: #222;
+    color: #fff;
+    border: none;
+    padding: 8px 18px;
+    border-radius: 20px;
+    font-size: 12px;
+    cursor: pointer;
+    margin-bottom: 25px;
+    transition: background 0.2s;
+    font-weight: 500;
+}
+.tab-btn:hover {
+    background: #555;
+}
+
+/* 페이지 컨테이너 기본은 숨김 */
+.page-container {
+    display: none;
+    width: 95%;
+    max-width: 1200px;
+}
+/* 활성화된 페이지만 표시 */
+.page-container.active {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+}
+
+.card { 
+    padding: 15px 20px; 
+    border-radius: 12px; 
+    background: #fff; 
+    display: flex; 
+    flex-direction: column; 
+    text-align: left; 
+    box-shadow: 0 5px 20px rgba(0,0,0,0.04); 
+    border: 1px solid #eee; 
+}
 
 .title-wrapper { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; }
 h2 { font-size: 12px; letter-spacing: 1px; margin: 0; font-weight: 600; }
@@ -45,7 +102,39 @@ hr { border: 0; border-top: 1px solid #f0f0f0; margin: 5px 0; }
 
 <h1 class="main-title">MY PRIVATE PLAYLIST</h1>
 
-<div class="wrapper">
+<!-- 페이지 전환 버튼 (누를 때마다 1번 <-> 2번 왕복) -->
+<button class="tab-btn" id="toggleBtn" onclick="switchPage()">Switch to Page 1</button>
+
+<!-- [시작 페이지] 새로운 2페이지 (파일명을 birth 등으로 설정) -->
+<div class="page-container active" id="page2">
+    <div class="card card-pink">
+        <div class="title-wrapper"><h2>Birth Side A</h2></div>
+        <div class="song-item"><div class="song-name">birth1.mp3</div><audio src="birth1.mp3" controls loop></audio></div>
+        <hr>
+        <div class="song-item"><div class="song-name">birth2.mp3</div><audio src="birth2.mp3" controls loop></audio></div>
+    </div>
+    
+    <div class="card card-blue">
+        <div class="title-wrapper"><h2>Birth Side B</h2></div>
+        <div class="song-item"><div class="song-name">birth3.mp3</div><audio src="birth3.mp3" controls loop></audio></div>
+        <hr>
+        <div class="song-item"><div class="song-name">birth4.flac</div><audio src="birth4.flac" controls loop></audio></div>
+    </div>
+
+    <div class="card card-purple">
+        <div class="title-wrapper">
+            <h2>Birth Side C</h2>
+            <span class="badge-rainbow">NEW</span>
+        </div>
+        <div class="song-item"><div class="song-name">birth.mp3</div><audio src="birth.mp3" controls loop></audio></div>
+        <hr>
+        <div class="song-item"><div class="song-name">birth6.flac</div><audio src="birth6.flac" controls loop></audio></div>
+    </div>
+    <!-- 필요시 2페이지 카드들을 추가/수정하여 구성하세요 -->
+</div>
+
+<!-- 기존 1페이지 -->
+<div class="page-container" id="page1">
     <div class="card card-pink"><div class="title-wrapper"><h2>Side A</h2></div><div class="song-item"><div class="song-name">music1.mp3</div><audio src="music1.mp3" controls loop></audio></div><hr><div class="song-item"><div class="song-name">music2.mp3</div><audio src="music2.mp3" controls loop></audio></div></div>
     
     <div class="card card-blue"><div class="title-wrapper"><h2>Side B</h2></div><div class="song-item"><div class="song-name">music3.mp3</div><audio src="music3.mp3" controls loop></audio></div><hr><div class="song-item"><div class="song-name">music4.flac</div><audio src="music4.flac" controls loop></audio></div></div>
@@ -53,62 +142,26 @@ hr { border: 0; border-top: 1px solid #f0f0f0; margin: 5px 0; }
     <div class="card card-purple"><div class="title-wrapper"><h2>Side C</h2></div><div class="song-item"><div class="song-name">music5.flac</div><audio src="music5.flac" controls loop></audio></div><hr><div class="song-item"><div class="song-name">music6.flac</div><audio src="music6.flac" controls loop></audio></div></div>
 
     <div class="card card-orange"><div class="title-wrapper"><h2>New Side A</h2></div><div class="song-item"><div class="song-name">music7.flac</div><audio src="music7.flac" controls loop></audio></div><hr><div class="song-item"><div class="song-name">music8.mp3</div><audio src="music8.mp3" controls loop></audio></div></div>
-    
-    <div class="card card-cyan"><div class="title-wrapper"><h2>New Side B</h2></div><div class="song-item"><div class="song-name">music9.flac</div><audio src="music9.flac" controls loop></audio></div><hr><div class="song-item"><div class="song-name">music10.flac</div><audio src="music10.flac" controls loop></audio></div></div>
-    
-    <div class="card card-black-title"><div class="title-wrapper"><h2>New Side C</h2></div><div class="song-item"><div class="song-name">music11.flac</div><audio src="music11.flac" controls loop></audio></div><hr><div class="song-item"><div class="song-name">music12.mp3</div><audio src="music12.mp3" controls loop></audio></div></div>
-
-    <div class="card card-pink">
-        <div class="title-wrapper"><h2>Next Side A</h2></div>
-        <div class="song-item"><div class="song-name">music13.flac</div><audio src="music13.flac" controls loop></audio></div>
-        <hr>
-        <div class="song-item"><div class="song-name">music14.mp3</div><audio src="music14.mp3" controls loop></audio></div>
-    </div>
-
-    <div class="card card-blue">
-        <div class="title-wrapper"><h2>Next Side B</h2></div>
-        <div class="song-item"><div class="song-name">music15.mp3</div><audio src="music15.mp3" controls loop></audio></div>
-        <hr>
-        <div class="song-item"><div class="song-name">music16.mp3</div><audio src="music16.mp3" controls loop></audio></div>
-    </div>
-
-    <div class="card card-purple">
-        <div class="title-wrapper"><h2>Next Side C</h2></div>
-        <div class="song-item"><div class="song-name">music17.mp3</div><audio src="music17.mp3" controls loop></audio></div>
-        <hr>
-        <div class="song-item"><div class="song-name">music18.mp3</div><audio src="music18.mp3" controls loop></audio></div>
-    </div>
-
-    <div class="card card-black-title">
-        <div class="title-wrapper"><h2>Next Side D</h2></div>
-        <div class="song-item"><div class="song-name">music19.MP3</div><audio src="music19.MP3" controls loop></audio></div>
-        <hr>
-        <div class="song-item"><div class="song-name">music20.MP3</div><audio src="music20.MP3" controls loop></audio></div>
-    </div>
-
-    <div class="card card-black-title">
-        <div class="title-wrapper"><h2>Next Side E</h2></div>
-        <div class="song-item"><div class="song-name">music21.mp3</div><audio src="music21.mp3" controls loop></audio></div>
-        <hr>
-        <div class="song-item"><div class="song-name">music22.mp3</div><audio src="music22.mp3" controls loop></audio></div>
-    </div>
-
-    <div class="card card-black-title">
-        <div class="title-wrapper">
-            <h2>Next Side F</h2>
-            <span class="badge-rainbow">NEW</span>
-        </div>
-        <div class="song-item">
-            <div class="song-name">music23.mp3</div>
-            <audio src="music23.mp3" controls loop></audio>
-        </div>
-        <hr>
-        <div class="song-item">
-            <div class="song-name">music24.mp3</div>
-            <audio src="music24.mp3" controls loop></audio>
-        </div>
-    </div>
 </div>
+
+<script>
+function switchPage() {
+    const page1 = document.getElementById('page1');
+    const page2 = document.getElementById('page2');
+    const btn = document.getElementById('toggleBtn');
+
+    // 현재 2페이지가 켜져 있으면 1페이지로 전환, 반대면 2페이지로 전환
+    if (page2.classList.contains('active')) {
+        page2.classList.remove('active');
+        page1.classList.add('active');
+        btn.innerText = "Switch to Page 2 (Birth)";
+    } else {
+        page1.classList.remove('active');
+        page2.classList.add('active');
+        btn.innerText = "Switch to Page 1";
+    }
+}
+</script>
 
 </body>
 </html>
