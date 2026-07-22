@@ -102,14 +102,17 @@ hr { border: 0; border-top: 1px solid #f0f0f0; margin: 5px 0; }
 
 <h1 class="main-title">MY PRIVATE PLAYLIST</h1>
 
-<!-- 페이지 전환 버튼 (누를 때마다 1번 <-> 2번 왕복) -->
+<!-- 페이지 전환 버튼 -->
 <button class="tab-btn" id="toggleBtn" onclick="switchPage()">Switch to Page 1</button>
 
-<!-- [시작 페이지] 새로운 2페이지 (파일명을 birth 등으로 설정) -->
+<!-- [시작 페이지] 새로운 2페이지 (birth.flac 적용) -->
 <div class="page-container active" id="page2">
     <div class="card card-pink">
-        <div class="title-wrapper"><h2>Birth Side A</h2></div>
-        <div class="song-item"><div class="song-name">birth1.mp3</div><audio src="birth1.mp3" controls loop></audio></div>
+        <div class="title-wrapper">
+            <h2>Birth Side A</h2>
+            <span class="badge-rainbow">NEW</span>
+        </div>
+        <div class="song-item"><div class="song-name">birth.flac</div><audio src="birth.flac" controls loop></audio></div>
         <hr>
         <div class="song-item"><div class="song-name">birth2.mp3</div><audio src="birth2.mp3" controls loop></audio></div>
     </div>
@@ -122,15 +125,11 @@ hr { border: 0; border-top: 1px solid #f0f0f0; margin: 5px 0; }
     </div>
 
     <div class="card card-purple">
-        <div class="title-wrapper">
-            <h2>Birth Side C</h2>
-            <span class="badge-rainbow">NEW</span>
-        </div>
-        <div class="song-item"><div class="song-name">birth.mp3</div><audio src="birth.mp3" controls loop></audio></div>
+        <div class="title-wrapper"><h2>Birth Side C</h2></div>
+        <div class="song-item"><div class="song-name">birth5.mp3</div><audio src="birth5.mp3" controls loop></audio></div>
         <hr>
         <div class="song-item"><div class="song-name">birth6.flac</div><audio src="birth6.flac" controls loop></audio></div>
     </div>
-    <!-- 필요시 2페이지 카드들을 추가/수정하여 구성하세요 -->
 </div>
 
 <!-- 기존 1페이지 -->
@@ -150,7 +149,6 @@ function switchPage() {
     const page2 = document.getElementById('page2');
     const btn = document.getElementById('toggleBtn');
 
-    // 현재 2페이지가 켜져 있으면 1페이지로 전환, 반대면 2페이지로 전환
     if (page2.classList.contains('active')) {
         page2.classList.remove('active');
         page1.classList.add('active');
