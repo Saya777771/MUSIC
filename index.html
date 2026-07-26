@@ -75,7 +75,7 @@ hr { border: 0; border-top: 1px solid #f0f0f0; margin: 5px 0; }
 <!-- 페이지 전환 버튼 -->
 <button class="tab-btn" id="toggleBtn" onclick="switchPage()">Switch to Page 1</button>
 
-<!-- [시작 페이지] 2페이지: birth.flac, Holy orders.mp3 및 추가된 곡들 포함 -->
+<!-- [시작 페이지] 2페이지: Birth Playlist와 Battle Playlist 포함 -->
 <div class="page-container active" id="page2">
     <div class="card card-pink">
         <div class="title-wrapper">
@@ -88,13 +88,19 @@ hr { border: 0; border-top: 1px solid #f0f0f0; margin: 5px 0; }
         </div>
         <hr>
         <div class="song-item">
-            <div class="song-name">Holy orders.mp3</div>
-            <audio src="Holy orders.mp3" controls loop></audio>
-        </div>
-        <hr>
-        <div class="song-item">
             <div class="song-name">Reminiscence.mp3</div>
             <audio src="Reminiscence.mp3" controls loop></audio>
+        </div>
+    </div>
+
+    <div class="card card-blue">
+        <div class="title-wrapper">
+            <h2>Battle Playlist</h2>
+            <span class="badge-rainbow">NEW</span>
+        </div>
+        <div class="song-item">
+            <div class="song-name">Holy orders.mp3</div>
+            <audio src="Holy orders.mp3" controls loop></audio>
         </div>
         <hr>
         <div class="song-item">
@@ -179,7 +185,7 @@ function switchPage() {
     if (page2.classList.contains('active')) {
         page2.classList.remove('active');
         page1.classList.add('active');
-        btn.innerText = "Switch to Page 2 (Birth)";
+        btn.innerText = "Switch to Page 2 (Birth & Battle)";
     } else {
         page1.classList.remove('active');
         page2.classList.add('active');
@@ -187,5 +193,7 @@ function switchPage() {
     }
 }
 </script>
+</body>
+</html>
 </body>
 </html>
