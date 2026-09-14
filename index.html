@@ -75,7 +75,7 @@ hr { border: 0; border-top: 1px solid #f0f0f0; margin: 5px 0; }
 <!-- 페이지 전환 버튼 -->
 <button class="tab-btn" id="toggleBtn" onclick="switchPage()">Switch to Page 1</button>
 
-<!-- [시작 페이지] 2페이지: Birth, 紅月, Fantasy(배치변경), Battle(배치변경) 순서 -->
+<!-- [시작 페이지] 2페이지: Birth, 紅月, Fantasy, Battle 순서 -->
 <div class="page-container active" id="page2">
     <!-- 1번 카드: Birth Playlist -->
     <div class="card card-pink">
@@ -129,14 +129,19 @@ hr { border: 0; border-top: 1px solid #f0f0f0; margin: 5px 0; }
         </div>
     </div>
 
-    <!-- 2번 카드: Birth 오른쪽 공간 (제목 및 배지 제거, 붉은 달 곡만 유지) -->
+    <!-- 2번 카드: 양옆 카드들과 완전히 똑같은 구조(제목 영역 + 곡 이름 영역 + 재생바)로 맞춘 紅月.mp3 카드 -->
     <div class="card card-black-title">
+        <div class="title-wrapper">
+            <h2>Special Track</h2>
+            <span class="badge-rainbow">NEW</span>
+        </div>
         <div class="song-item">
+            <div class="song-name">紅月.mp3</div>
             <audio src="紅月.mp3" controls loop></audio>
         </div>
     </div>
 
-    <!-- 3번 카드: Fantasy (위치 변경) -->
+    <!-- 3번 카드: Fantasy -->
     <div class="card card-purple">
         <div class="title-wrapper">
             <h2>Fantasy</h2>
@@ -188,7 +193,7 @@ hr { border: 0; border-top: 1px solid #f0f0f0; margin: 5px 0; }
         </div>
     </div>
 
-    <!-- 4번 카드: Battle Playlist (위치 변경) -->
+    <!-- 4번 카드: Battle Playlist -->
     <div class="card card-blue">
         <div class="title-wrapper">
             <h2>Battle Playlist</h2>
