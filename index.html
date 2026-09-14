@@ -75,8 +75,9 @@ hr { border: 0; border-top: 1px solid #f0f0f0; margin: 5px 0; }
 <!-- 페이지 전환 버튼 -->
 <button class="tab-btn" id="toggleBtn" onclick="switchPage()">Switch to Page 1</button>
 
-<!-- [시작 페이지] 2페이지: Birth, Fantasy, Battle 플레이리스트 포함 -->
+<!-- [시작 페이지] 2페이지: Birth, 紅月, Fantasy(배치변경), Battle(배치변경) 순서 -->
 <div class="page-container active" id="page2">
+    <!-- 1번 카드: Birth Playlist -->
     <div class="card card-pink">
         <div class="title-wrapper">
             <h2>Birth Playlist</h2>
@@ -128,6 +129,14 @@ hr { border: 0; border-top: 1px solid #f0f0f0; margin: 5px 0; }
         </div>
     </div>
 
+    <!-- 2번 카드: Birth 오른쪽 공간 (제목 및 배지 제거, 붉은 달 곡만 유지) -->
+    <div class="card card-black-title">
+        <div class="song-item">
+            <audio src="紅月.mp3" controls loop></audio>
+        </div>
+    </div>
+
+    <!-- 3번 카드: Fantasy (위치 변경) -->
     <div class="card card-purple">
         <div class="title-wrapper">
             <h2>Fantasy</h2>
@@ -179,6 +188,7 @@ hr { border: 0; border-top: 1px solid #f0f0f0; margin: 5px 0; }
         </div>
     </div>
 
+    <!-- 4번 카드: Battle Playlist (위치 변경) -->
     <div class="card card-blue">
         <div class="title-wrapper">
             <h2>Battle Playlist</h2>
@@ -197,11 +207,6 @@ hr { border: 0; border-top: 1px solid #f0f0f0; margin: 5px 0; }
         <div class="song-item">
             <div class="song-name">LostRoses.flac</div>
             <audio src="LostRoses.flac" controls loop></audio>
-        </div>
-        <hr>
-        <div class="song-item">
-            <div class="song-name">紅月.mp3</div>
-            <audio src="紅月.mp3" controls loop></audio>
         </div>
     </div>
 </div>
@@ -281,7 +286,7 @@ function switchPage() {
     if (page2.classList.contains('active')) {
         page2.classList.remove('active');
         page1.classList.add('active');
-        btn.innerText = "Switch to Page 2 (Birth, Battle & Fantasy)";
+        btn.innerText = "Switch to Page 2 (Birth & More)";
     } else {
         page1.classList.remove('active');
         page2.classList.add('active');
