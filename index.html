@@ -63,6 +63,8 @@ h2 { font-size: 12px; letter-spacing: 1px; margin: 0; font-weight: 600; }
 
 .song-item { margin: 8px 0; }
 audio { width: 100%; height: 28px; outline: none; border-radius: 6px; filter: grayscale(1) contrast(1.2); opacity: 0.8; }
+audio::-webkit-media-controls-enclosure { overflow: hidden; }
+audio::-webkit-media-controls-panel { width: calc(100% + 35px); }
 .song-name { font-size: 11px; margin-bottom: 5px; color: #666; font-weight: 500; display: flex; align-items: center; }
 .song-name::before { content: '•'; margin-right: 6px; }
 hr { border: 0; border-top: 1px solid #f0f0f0; margin: 5px 0; }
@@ -75,7 +77,7 @@ hr { border: 0; border-top: 1px solid #f0f0f0; margin: 5px 0; }
 <!-- 페이지 전환 버튼 -->
 <button class="tab-btn" id="toggleBtn" onclick="switchPage()">Switch to Page 1</button>
 
-<!-- [시작 페이지] 2페이지: Birth, Fantasy, Battle 순서 (홍월 카드가 있던 2번째 카드 영역을 완전히 삭제) -->
+<!-- [시작 페이지] 2페이지: Birth, Fantasy, River, Battle 순서 -->
 <div class="page-container active" id="page2">
     <!-- 1번 카드: Birth Playlist -->
     <div class="card card-pink">
@@ -129,9 +131,7 @@ hr { border: 0; border-top: 1px solid #f0f0f0; margin: 5px 0; }
         </div>
     </div>
 
-    <!-- 2번 카드(홍월 카드) 영역은 완전히 삭제되었습니다. -->
-
-    <!-- 3번 카드: Fantasy -->
+    <!-- 2번 카드: Fantasy -->
     <div class="card card-purple">
         <div class="title-wrapper">
             <h2>Fantasy</h2>
@@ -183,7 +183,29 @@ hr { border: 0; border-top: 1px solid #f0f0f0; margin: 5px 0; }
         </div>
     </div>
 
-    <!-- 4번 카드: Battle Playlist -->
+    <!-- 3번 카드: River Playlist (새로 추가) -->
+    <div class="card card-orange">
+        <div class="title-wrapper">
+            <h2>River Playlist</h2>
+            <span class="badge-rainbow">NEW</span>
+        </div>
+        <div class="song-item">
+            <div class="song-name">Silent Street (Type A).flac</div>
+            <audio src="Silent Street (Type A).flac" controls loop></audio>
+        </div>
+        <hr>
+        <div class="song-item">
+            <div class="song-name">Great Desert (Reboot Type B).flac</div>
+            <audio src="Great Desert (Reboot Type B).flac" controls loop></audio>
+        </div>
+        <hr>
+        <div class="song-item">
+            <div class="song-name">Raven.flac</div>
+            <audio src="Raven.flac" controls loop></audio>
+        </div>
+    </div>
+
+    <!-- 4번 카드: Battle Playlist (이동됨) -->
     <div class="card card-blue">
         <div class="title-wrapper">
             <h2>Battle Playlist</h2>
