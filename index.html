@@ -31,7 +31,7 @@ body { background: #f8f9fa; color: #333; display: flex; flex-direction: column; 
 /* 활성화된 페이지만 표시 */
 .page-container.active {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     gap: 15px;
 }
 
@@ -75,27 +75,22 @@ hr { border: 0; border-top: 1px solid #f0f0f0; margin: 5px 0; }
 <!-- 페이지 전환 버튼 -->
 <button class="tab-btn" id="toggleBtn" onclick="switchPage()">Switch to Page 1</button>
 
-<!-- [시작 페이지] 2페이지: Birth, Birth2, Fantasy, River, Battle 순서 -->
+<!-- [시작 페이지] 2페이지: Birth, Fantasy, River, Battle 순서 -->
 <div class="page-container active" id="page2">
-    <!-- 1번 카드: Birth Playlist -->
+    <!-- 1번 카드: Birth Playlist (나선의 달.mp3 맨 위 이동 / Reminiscence.mp3, Romance.mp3 삭제) -->
     <div class="card card-pink">
         <div class="title-wrapper">
             <h2>Birth Playlist</h2>
             <span class="badge-rainbow">NEW</span>
         </div>
         <div class="song-item">
+            <div class="song-name">나선의 달.mp3</div>
+            <audio src="나선의 달.mp3" controls controlsList="nodownload" loop></audio>
+        </div>
+        <hr>
+        <div class="song-item">
             <div class="song-name">birth.flac</div>
             <audio src="birth.flac" controls controlsList="nodownload" loop></audio>
-        </div>
-        <hr>
-        <div class="song-item">
-            <div class="song-name">Reminiscence.mp3</div>
-            <audio src="Reminiscence.mp3" controls controlsList="nodownload" loop></audio>
-        </div>
-        <hr>
-        <div class="song-item">
-            <div class="song-name">Romance.mp3</div>
-            <audio src="Romance.mp3" controls controlsList="nodownload" loop></audio>
         </div>
         <hr>
         <div class="song-item">
@@ -129,19 +124,7 @@ hr { border: 0; border-top: 1px solid #f0f0f0; margin: 5px 0; }
         </div>
     </div>
 
-    <!-- 2번 카드: Birth2 Playlist (Cherry blossom.mp3, Time to love.mp3 삭제 완료) -->
-    <div class="card card-pink">
-        <div class="title-wrapper">
-            <h2>Birth2</h2>
-            <span class="badge-rainbow">NEW</span>
-        </div>
-        <div class="song-item">
-            <div class="song-name">나선의 달.mp3</div>
-            <audio src="나선의 달.mp3" controls controlsList="nodownload" loop></audio>
-        </div>
-    </div>
-
-    <!-- 3번 카드: Fantasy -->
+    <!-- 2번 카드: Fantasy -->
     <div class="card card-purple">
         <div class="title-wrapper">
             <h2>Fantasy</h2>
@@ -193,7 +176,7 @@ hr { border: 0; border-top: 1px solid #f0f0f0; margin: 5px 0; }
         </div>
     </div>
 
-    <!-- 4번 카드: River Playlist -->
+    <!-- 3번 카드: River Playlist -->
     <div class="card card-black-title">
         <div class="title-wrapper">
             <h2>River Playlist</h2>
@@ -240,7 +223,7 @@ hr { border: 0; border-top: 1px solid #f0f0f0; margin: 5px 0; }
         </div>
     </div>
 
-    <!-- 5번 카드: Battle Playlist -->
+    <!-- 4번 카드: Battle Playlist -->
     <div class="card card-blue">
         <div class="title-wrapper">
             <h2>Battle Playlist</h2>
