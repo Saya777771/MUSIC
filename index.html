@@ -77,12 +77,17 @@ hr { border: 0; border-top: 1px solid #f0f0f0; margin: 5px 0; }
 
 <!-- [시작 페이지] 2페이지: Birth, Fantasy, Angel, Destiny 순서 -->
 <div class="page-container active" id="page2">
-    <!-- 1번 카드: Birth Playlist (맨 위와 맨 아래에 찻잔과 도넛이 춤추는 가게.mp3 추가) -->
+    <!-- 1번 카드: Birth Playlist (크리스마스.mp3 맨 위 추가, 찻잔 중복 제거) -->
     <div class="card card-pink">
         <div class="title-wrapper">
             <h2>Birth Playlist</h2>
             <span class="badge-rainbow">NEW</span>
         </div>
+        <div class="song-item">
+            <div class="song-name">크리스마스.mp3</div>
+            <audio src="크리스마스.mp3" controls controlsList="nodownload" loop></audio>
+        </div>
+        <hr>
         <div class="song-item">
             <div class="song-name">찻잔과 도넛이 춤추는 가게.mp3</div>
             <audio src="찻잔과 도넛이 춤추는 가게.mp3" controls controlsList="nodownload" loop></audio>
@@ -111,11 +116,6 @@ hr { border: 0; border-top: 1px solid #f0f0f0; margin: 5px 0; }
         <div class="song-item">
             <div class="song-name">You.mp3</div>
             <audio src="You.mp3" controls controlsList="nodownload" loop></audio>
-        </div>
-        <hr>
-        <div class="song-item">
-            <div class="song-name">찻잔과 도넛이 춤추는 가게.mp3</div>
-            <audio src="찻잔과 도넛이 춤추는 가게.mp3" controls controlsList="nodownload" loop></audio>
         </div>
     </div>
 
@@ -290,10 +290,7 @@ hr { border: 0; border-top: 1px solid #f0f0f0; margin: 5px 0; }
             <h2>Next Side F</h2>
             <span class="badge-rainbow">NEW</span>
         </div>
-        <div class="song-item">
-            <div class="song-name">music23.mp3</div>
-            <audio src="music23.mp3" controls controlsList="nodownload" loop></audio>
-        </div>
+        <div class="song-item"><div class="song-name">music23.mp3</div><audio src="music23.mp3" controls controlsList="nodownload" loop></audio></div>
         <hr>
         <div class="song-item"><div class="song-name">music24.mp3</div><audio src="music24.mp3" controls controlsList="nodownload" loop></audio></div>
     </div>
